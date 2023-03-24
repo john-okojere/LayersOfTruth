@@ -7,8 +7,14 @@ scanbarcode/__pycache__
 siloam/__pycache__
 user/__pycache__
 
-backend/migrations
-department/migrations
-scanbarcode/migrations
-siloam/migrations
-user/migrations
+department/migrations/*
+!department/migrations/__init__.py
+
+scanbarcode/migrations/*
+!scanbarcode/migrations/__init__.py
+
+siloam/migrations/*
+!siloam/migrations/__init__.py
+
+user/migrations/*
+!user/migrations/__init__.py
