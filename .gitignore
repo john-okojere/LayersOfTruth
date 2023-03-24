@@ -1,0 +1,14 @@
+db.sqlite3
+media/
+
+backend/__pycache__
+department/__pycache__
+scanbarcode/__pycache__
+siloam/__pycache__
+user/__pycache__
+
+backend/migrations
+department/migrations
+scanbarcode/migrations
+siloam/migrations
+user/migrations

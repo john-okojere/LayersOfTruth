@@ -1,0 +1,263 @@
+{% extends "base.html" %} {% load static %} {% block header %}
+<style>
+    #OurMinistries {
+        margin: 4rem 0;
+        min-height: 0;
+    }
+</style>
+<div id="myCarousel" class="carousel slide m-1" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="main-header d-flex container">
+                <div class="main-text">
+                    <h2>Welcome To Church</h2>
+                    <p>where we insist on acting on the truth and showing how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren
+                    </p>
+                    <div class="mt-3">
+                        <a class="btn" style="background-color: #97a9bd75;" target="_blank" href="https://mixlr.com/layersoftruth">
+                            <img style="width:30px" src="{% static 'home/assets/imgs/mixlr-logo-9337.png'%}">
+                            <span style="padding-left: 10px;"> Connect Live
+                            </span></a>
+                    </div>
+                </div>
+                <div class="header_logo">
+                    <div class="logo" style="background: url( '{% static 'home/assets/imgs/LOT 3D GOLD.png' %}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="main-header d-flex container">
+                <div class="main-text">
+                    <h2>Siloam Conference 2023</h2>
+                    <p>Siloam is a non-denominational 3-day conference hosted annually by Layers of Truth. It is usually a time of in-depth study of God’s word, line upon line and precept upon precept, bringing great revelation light that leads to restoration,
+                        renewal and revival.
+                    </p>
+                    <div class="mt-3">
+                        <a class="btn" style="background-color: #97a9bd75;" href="/siloam2023/register">
+                            <span style="padding-left: 10px;"> Register Online
+                            </span></a>
+                    </div>
+                </div>
+                <div class="header_logo">
+                    <div class="logo" style="background: url( '{% static 'home/assets/imgs/SILOAM_REDO_PASTOR_OSHOMA.png' %}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+{% endblock header %} {% block main %}
+<div class=" my-5 container">
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-success">{{message}}</div> {% endfor %}{% endif %}
+</div>
+
+<div id="WWB" class="WWB block text-light bg-dark rounded container">
+    <h1 class="block mb-5 m-3" style="border-bottom: goldenrod 1px solid;width: fit-content;">WHAT WE BELIEVE</h1>
+    <div class="content">
+        <div class="block m-3" style="word-spacing: 2px;letter-spacing: 1px;">
+            <h4 class="block" style="border-bottom: goldenrod 1px solid;width: fit-content;">
+                The Church
+            </h4>
+            <p>The church is the body of Christ, the habitation of God through the Spirit with divine appointments for the fulfillment of the great commission. Each believer, born of the Spirit, is an integral part of the church of the firstborn, which are
+                written in heaven (Ephesians 1:22-23; 2:22; Hebrews 12:33).
+            </p>
+        </div>
+
+        <div class="block m-3" style="word-spacing: 2px;letter-spacing: 1px;">
+            <h4 class="block" style="border-bottom: goldenrod 1px solid;width: fit-content;">
+                The Head
+            </h4>
+            <p>The one true God who has revealed Himself by His Son Jesus Christ the mediator between God and mankind. God became manifest in the flesh for redemption of mankind and righteousness for his Chosen. through His Spirit he makes himself known
+                unto all who seek him. (Deuteronomy 6:4; Isaiah 43:10, 11; Matthew 28:19; Acts).
+            </p>
+        </div>
+
+        <div class="block m-3" style="word-spacing: 2px;letter-spacing: 1px;">
+            <h4 class="block" style="border-bottom: goldenrod 1px solid;width: max-content;">
+                Jesus - Son of God
+            </h4>
+            <p>The Lord Jesus Christ is the eternal Son of God. The Scriptures declare His virgin birth (Matthew 1:23; Luke 1:31; Luke 1:35), His sinless life (Hebrews 7:26; 1 Peter 2:22), His miracles (Acts 2:22; Acts 10:38),
+            </p>
+        </div>
+    </div>
+</div>
+<div class="m-5"></div>
+<div class="img_banner">
+</div>
+<div id="OurMinistries">
+    <section id="services" class="hoc container clear">
+        <div class="sectiontitle">
+            <p class="nospace font-xs" style=" font-style: italic;color: white;font-size:1.5rem !important">Join Us</p>
+            <h6 class="heading font-x2" style="font-size:2rem !important">Our ministries</h6>
+            <br>
+            <p>Be a part of the layers of truth in the soul center by joining our minister.</p>
+        </div>
+        <ul class="nospace group elements elements-three">
+
+            <li class="one_third text-black">
+                <article>
+                    <a rel="layers of truth 's soul center link" class="text-black" href=""><img style="width:100px;height:100px" src="{% static 'home/assets/imgs/download.png'%}" alt="layers of truth soul center image of">
+                        <h6 class="heading">Communinion Service</h6>
+                        <p>Every Sunday 8:00am
+                        </p>
+                        <p>
+                            Venue: <strong>Soul Center</strong> Along mothercat road farin gida, mando kaduna.
+                        </p>
+                    </a>
+                </article>
+            </li>
+            <li class="one_third">
+                <article>
+                    <a rel="layers of truth's soul center link" class="text-black" href="#"><img style="width:100px;height:100px" src="{% static 'home/assets/imgs/VOP -.png'%}" alt="layers of truth soul center image of">
+                        <h6 class="heading">Voice Of Prayer</h6>
+                        <p>Every Tuesday 6:00pm
+                        </p>
+                        <p>
+                            Venue: <strong>Soul Center</strong> Along mothercat road farin gida, mando kaduna.
+                        </p>
+                    </a>
+                </article>
+            </li>
+            <li class="one_third">
+                <article>
+                    <a rel="layers of truth 's soul center link" class="text-black" href="#"><img style="width:100px;height:100px" src="{% static 'home/assets/imgs/revelation hour logo.png'%}" alt="layers of truth soul center image of">
+                        <h6 class="heading">Revelation Hour</h6>
+                        <p>Every Thursday 5:00pm
+                        </p>
+                        <p>
+                            Venue: <strong>Soul Center</strong> Along mothercat road farin gida, mando kaduna.
+                        </p>
+                    </a>
+                </article>
+            </li>
+        </ul>
+    </section>
+</div>
+
+<div class="brand text-muted container" style="overflow-x: scroll;">
+    <div>
+        <img src="{% static 'siloam/assets/imgs/table.jpg' %}" style="width:100%" alt="">
+    </div>
+
+    <div>
+        <img src="{% static 'siloam/assets/imgs/present.jpg' %}" style="width:100%" alt="">
+    </div>
+    <div>
+        <img src="{% static 'siloam/assets/imgs/satan.jpg' %}" style="width:100%" alt="">
+    </div>
+    <div>
+        <img src="{% static 'siloam/assets/imgs/faith.jpg' %}" style="width:100%" alt="">
+    </div>
+
+</div>
+<div class="Action container mt-5">
+    <div class="d-flex tabs">
+        <h1><a href="#content1" id="tab1" onclick="opentab2()">You Can Start Again </a></h1>
+        <h1>
+            <a href="#content2" id="tab2" onclick="opentab1()">Do You Have A Prayer Request?</a></h1>
+    </div>
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-success">{{message}}</div> {% endfor %}{% endif %}
+    <div class="tab_content p-2 pt-5">
+        <div class="content" id="content1">
+            <h3>Exhortation, and Prayer</h3>
+            <p>Don't worry about anything, but pray and ask God for everything you need, always giving thanks for what you have. And because you belong to Christ Jesus, God 's peace will stand guard over all your thoughts and feelings. His peace can do this
+                far better than our human minds.
+            </p>
+            <form action="{% url 'addprayer' %}" method="post">
+                {% csrf_token %}
+                <h5 class="text-left">Let Us Prayer for you</h5>
+                <input type="text" name="soulname2" placeholder="Enter Full Name">
+                <textarea name="soulprayer" placeholder="Enter Your Prayer Request" id=""></textarea>
+                <input class="px-5" type="submit" value="Send Your Prayer Request">
+            </form>
+        </div>
+        <div class="content" id="content2">
+            <h3>Justified by Faith</h3>
+            <p>We were born Christians. As we call people who are not Christians, we were not sinners at birth. But we are aware that abiding by the law does not make one righteous in God's eyes. Trusting in Jesus Christ is what reconciles a person to God.
+                Since we want to be reconciled to God, we placed our confidence in Christ Jesus. And it is because of our faith in Christ, not because we kept the law, that we are right with him. I am able to say this because obeying the law cannot make
+                someone right with God. It is obvious that we Jews were also sinners since we came to Christ to be reconciled to God. Does this imply that we are sinners because of Christ? Of course not.</p>
+            <form action="{% url 'addsoul' %}" method="post">
+                {% csrf_token %}
+                <h5 class="text-left">Let Us Check up on you</h5>
+                <input type="text" name="soulname" placeholder="Enter Full Name">
+                <input type="text" name="soulphone" placeholder=" Enter Phone Number" id="">
+                <input type="submit" value="Submit Details">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="WLFC container py-5" style="min-height: 100vh;">
+
+    <div class="text p-5">
+        <h3>We Live For Christ</h3>
+        <p>I took my own life in accordance with the law because of the law itself. In order to live for God, I had to die to the law. Along with Christ, I was nailed on the cross. Therefore, Christ lives in me; I am not the one who lives now. Although I
+            still have a physical body, I still have confidence in the Son of God. He is the one who gave of himself out of love for me. The purpose of God's grace is not to be destroyed by me. Christ did not have to die if keeping the law is how one
+            is reconciled to God.</p>
+    </div>
+    <div>
+        <img src="{% static 'home/assets/imgs/IMG-20220425-WA0004.jpg'%}" style="width:100%" alt="">
+    </div>
+</div>
+
+</div>
+<br>
+<div class=" container">
+    {% if messages %} {% for message in messages %}
+    <div class="alert alert-success">{{message}}</div> {% endfor %}{% endif %}
+    <div class=" contact content">
+        <div class="left-side">
+            <div class="address details">
+                <i class="fas fa-map-marker-alt"></i>
+                <div class="topic">Address</div>
+                <div class="text-one">Along mothercat road,</div>
+                <div class="text-two">farin gida mando kaduna Nigeria.</div>
+            </div>
+            <div class="phone details">
+                <i class="fas fa-phone-alt"></i>
+                <div class="topic">Phone</div>
+                <div class="text-one">+234(0) 817 052 6942</div>
+            </div>
+            <div class="email details">
+                <i class="fas fa-envelope"></i>
+                <div class="topic">Email</div>
+                <div class="text-one">layersoftruthkd@gmail.com</div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="topic-text">Send us a message</div>
+            <p></p>
+            <form action="{% url 'addmessage' %}" method="post">
+                {% csrf_token %}
+                <div class="input-box">
+                    <input type="text" name="soulname3" placeholder="Enter your name">
+                </div>
+                <div class="input-box">
+                    <input type="text" name="soulemail" placeholder="Enter your email">
+                </div>
+                <div class="input-box message-box">
+                    <textarea name="soulmessage" placeholder="Enter your message" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Send Now">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

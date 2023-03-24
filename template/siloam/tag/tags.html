@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siloam tags</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static  'siloam/assets/css/style.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'siloam/tag/style.css'%}">
+</head>
+
+<body>
+    <style>
+        body {
+            background: white;
+        }
+        
+        .grid {
+            grid-gap: 1%;
+            justify-content: space-evenly;
+            margin-bottom: 3.5rem;
+            border: 1px solid black;
+            padding: 1rem;
+        }
+    </style>
+
+    <h2> <a href="#" style="background-color: black !important;padding: 1rem;display: inline-block;" onclick="window.print()">print</a> </h2>
+
+    <div class="row  justify-content-around">
+        {% for attendee in attendance %}
+        <div class="grid border-1 d-flex col-6" style="justify-content: center;">
+            <section class=" guest col-6">
+                <div class="card">
+                    <!-- <div class="tags"> -->
+                    <div class="top">
+
+                        <div class="card_logo">
+                            <img src="{% static 'siloam/tag/assets/LOT 3D GOLD.png'%}" width="55px" height="50px" alt="">
+                        </div>
+
+                        <div class="title mt-5">
+                            <h1>SILOAM</h1>
+                            <h3>CONFERENCE</h3>
+                            <P id="year">2023</P>
+                        </div>
+                    </div>
+
+                    <div class="details mt-5">
+
+                        <!-- <p id="department">Wine Press</p><br> -->
+
+                        <p id="ref_number">{{attendee.seat_number}}</p>
+                    </div>
+
+                    <div class="position mt-3">
+
+                        <h1 class="category">PARTICIPANT</h1>
+                    </div>
+
+                    <!-- </div> -->
+                </div>
+            </section>
+            <section class="guest col-6">
+                <div class="card">
+                    <!-- <div class="tags"> -->
+                    <div class="top">
+
+                        <div class="card_logo">
+                            <img src="{% static 'siloam/tag/assets/LOT 3D GOLD.png'%}" width="55px" height="50px" alt="">
+                        </div>
+
+                        <div class="title mt-2">
+                            <img src="{{ attendee.qr_code }}" alt="" style="width: 170px; margin: 1rem;">
+                        </div>
+                    </div>
+
+                    <div class="details mt-2">
+
+                        <!-- <p id="department">Wine Press</p><br> -->
+
+                        <p id="ref_number" style="font-size: 20px !important;padding-top: 10px;">{{attendee.full_name|upper}}</p>
+                    </div>
+
+                    <div class="p-2">
+
+                        <h1 class="category" style="letter-spacing: 2px;font-weight: 100;font-size: 10px;">layersofTtruth.org</h1>
+                    </div>
+
+                    <!-- </div> -->
+                </div>
+            </section>
+        </div>
+        {% endfor %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script>
+        $("#menu_content").hide();
+        $('#menu_icon').click(function(e) {
+            e.preventDefault();
+            $("#menu_content").show();
+        });
+        $('#menu_close').click(function(e) {
+            e.preventDefault();
+            $("#menu_content").hide();
+        });
+    </script>
+
+</body>
+
+</html>
