@@ -140,7 +140,7 @@ def siloamDashboard(request):
     attendance = Attendance.objects.all()
     attendancelist = CreateAttendance.objects.all()
     contact = Contact.objects.all()
-    return render(request, 'siloam/Dashboard/index.html', {'attendance':attendance,'attendancelist':attendancelist, 'attendee':attendee, 'contact':contact})
+    return render(request, 'siloam/dashboard/index.html', {'attendance':attendance,'attendancelist':attendancelist, 'attendee':attendee, 'contact':contact})
 
 def emailContact(request):
     email = request.POST.get('contact_email')

@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     # Packages
     'rest_framework',
     'crispy_forms',
-    'crispy_bootstrap5'
+    'crispy_bootstrap5',
+    'fontawesomefree'
 
    
 ]

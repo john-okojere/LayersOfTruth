@@ -1,5 +1,7 @@
 db.sqlite3
 media/
+siloam/static/
+venv/
 
 backend/__pycache__
 department/__pycache__
