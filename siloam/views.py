@@ -23,6 +23,10 @@ def registerSiloam(request):
             seat_number = '%03d' % seat,
             full_name = request.POST.get('full_name'),
             phone = request.POST.get('phone'),
+            local_assembly = request.POST.get('local_assembly'),
+            age = request.POST.get('age_range'),
+            gender = request.POST.get('gender'),
+            state = request.POST.get('state'),
             accomodation = accomodation,
             location = request.POST.get('location'),)
         attendee.save()

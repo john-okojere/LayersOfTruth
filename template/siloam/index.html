@@ -49,15 +49,19 @@
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: 'Roboto';
+        font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifa;
         scroll-behavior: smooth;
+        transition: ease-in-out 2s;
+    }
+    
+    .btn-warning {
+        background-color: #8A5D04 !important;
+        border-color: #8A5D04 !important;
     }
     
     .list-group-item {
         margin: 0 2rem;
     }
-    
-    body.container {}
 </style>
 
 <body class="">
@@ -129,6 +133,9 @@
             }
             .headimage {
                 display: none;
+            }
+            .info {
+                height: 90vh;
             }
         }
         
@@ -224,7 +231,7 @@
                                     <h1>SILOAM CONFERENCE 2023</h1>
                                 </div>
 
-                                <p class="m-0">Siloam is a non-denominational 4-day conference hosted annually by Layers of Truth Church kaduna. <br> It is usually a time of in-depth study of God’s word, line upon line and precept upon precept, bringing great revelation
+                                <p class="m-0">Siloam is a non-denominational 4-day conference hosted annually by The Layers of Truth Church, kaduna. <br> It is usually a time of in-depth study of God’s word, line upon line and precept upon precept, bringing great revelation
                                     light that leads to restoration, renewal and revival. </p>
                                 <div class="sub-info">
                                     {% if messages %} {% for message in messages %}
@@ -265,7 +272,8 @@
                 margin: 5rem;
                 align-items: center;
                 padding: 4rem;
-                background-color: rgba(0, 0, 0, 0.399);
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+                background-color: rgba(0, 0, 0, 0.051);
                 border-radius: 20px;
             }
             
@@ -334,6 +342,7 @@
             .at_img img {
                 width: 100%;
                 border-radius: 20px;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
             }
         </style>
         <div class="at">
@@ -366,25 +375,19 @@
             <div class="head4">
                 <div class="day">
                     <h1>01</h1>
-                    <p>Arrivals, Verification exercises for registered attendees, Registration of unregistred attendees, Checking in Spontaneous Worship, Labour in prayers Teaching sessions begin Word feasts.</p>
+                    <p>See the light of the Glorious gospel of Christ, That will Transform your life.</p>
                 </div>
                 <div class="day">
                     <h1>02</h1>
-                    <p>
-                        Word session resumes, Many teachings, Many hearings, Heartfelt worship sessions, Flesh is strangled, Life in the Spirit is activated, Sons are reconciled to The Father, The Spirit is poured out. .
-                    </p>
+                    <p>A time to experience God,Encontering God in diverse ways and manner, Touching God and Touching Life.</p>
                 </div>
                 <div class="day">
                     <h1>03</h1>
-                    <p>
-                        Tarrying at the word resumes, Eternal life conversations, Many more hearings, Many more teachings, Eternal hearings, Liberation of the oppressed, Enlightning of the eyes, Affections set on things above.
-                    </p>
+                    <p>Get Your eye Washed, see the truth, get a lot of redefinition to life and the things of God.</p>
                 </div>
                 <div class="day">
                     <h1>04</h1>
-                    <p>
-                        Labour in the word continues, Labour in prayers, Fire everywhere, power everywhere, Charity conversations, sincere milk served, Strong meat dished, Hearts established with grace, Singing unto the Lord.
-                    </p>
+                    <p>Get a better understanding about things your are struggling with.</p>
                 </div>
             </div>
 
@@ -413,7 +416,102 @@
             setInterval('updateTimer()',
                 1000);
         </script>
-
+        <style>
+            .block {
+                display: grid;
+                grid-template-columns: 49.5% 49.5%;
+                grid-gap: 1%;
+            }
+            
+            div.block div.task div {
+                display: flex;
+                align-items: center;
+                text-align: center;
+                margin: 0.5rem 0;
+            }
+            
+            div.block .task {
+                margin: 1rem;
+                text-align: left;
+                align-items: center;
+            }
+            
+            div.block div.task div div {
+                border: 1px black solid;
+                box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+                padding: 1rem;
+                border-radius: 15px;
+                margin-right: 1rem;
+            }
+            
+            .s {
+                align-self: center;
+                max-width: 500px;
+            }
+            
+            .pp {
+                padding: 5rem;
+                max-width: 90%;
+                margin: auto;
+            }
+            
+            .rect {
+                background-color: #8A5D04;
+                width: 50px;
+                height: 5px;
+            }
+            
+            @media screen and (max-width:860px) {
+                .pp.block {
+                    display: block;
+                    padding: 1rem;
+                }
+            }
+        </style>
+        <div class="pp block">
+            <div class="s">
+                <h1>Siloam 2023 Conference is Your Chance to..</h1>
+                <p>Siloam 2023 Conference offers all of the elements you need to to experience God,Encontering God in diverse ways and manners.</p> <a href="#registerform" class="btn btn-warning" style="box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);">Register Now</a>
+            </div>
+            <div class="block">
+                <div class="task">
+                    <div>
+                        <div>
+                            <i class="fa fa- fa-praying-hands"></i>
+                        </div>
+                        Prayers
+                    </div>Jesus wants men ought always to pray, and not to faint in luke 18:1.
+                    <div class="rect"></div>
+                </div>
+                <div class="task">
+                    <div>
+                        <div>
+                            <i class="fa fa- fa-music"></i>
+                        </div>
+                        Praise
+                    </div>I will praise the LORD according to the righteousness of God Psalm 7:17
+                    <div class="rect"></div>
+                </div>
+                <div class="task">
+                    <div>
+                        <div>
+                            <i class="fa fa-ear-deaf"></i>
+                        </div>
+                        Doctrine
+                    </div>We will learn the wholesome words of our lord jesus christ
+                    <div class="rect"></div>
+                </div>
+                <div class="task">
+                    <div>
+                        <div>
+                            <i class="fa fa-campground"></i>
+                        </div>
+                        Camping
+                    </div>We have promised to dwell in the house of the Lord
+                    <div class="rect"></div>
+                </div>
+            </div>
+        </div>
         <style>
             .bookings {
                 padding: 0 2rem;
@@ -438,6 +536,11 @@
                     grid-template-columns: 49% 49%;
                     grid-gap: 2%;
                 }
+                form#register div.pp.block {
+                    padding: 0 !important;
+                    margin: auto;
+                    width: 100%;
+                }
             }
         </style>
         <section class="bookings d-flex" style="margin:2rem 0;min-height:70vh">
@@ -454,21 +557,59 @@
                             </p>
 
                         </div>
-                        <div class="form-group">
-                            <label for="full_name">Full Name</label>
-                            <input id="full_name" class="form-control" name="full_name" placeholder="Enter Your Full Name" type="text" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="full_name">Phone Number</label>
-                            <input class="form-control w-100" name="phone" placeholder="Enter Your Phone Number" type="number" required>
-                        </div>
+                        <div class="pp block" style="    padding: 0;
+                        margin: 0;
+                        max-width: 100%;">
+                            <div class="form-group">
+                                <label for="full_name">Full Name</label>
+                                <input id="full_name" class="form-control" name="full_name" placeholder="Enter Your Full Name" type="text" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="full_name">Phone Number</label>
+                                <input class="form-control w-100" name="phone" placeholder="Enter Your Phone Number" type="text" required>
+                            </div>
 
-                        <div class="form-group">
-                            <label for="full_name">Place Of Residence</label>
-                            <input class="form-control w-100" placeholder="Where are you coming from?" name="location" type="text" required>
+                            <div class="form-group">
+                                <label for="full_name">Local Assembly</label>
+                                <input class="form-control w-100" placeholder="Your Church" name="local_assembly" type="text" required>
+                            </div>
+                            <div class="form-group" style="align-self: self-end;">
+                                <label for="full_name">Age Range</label>
+                                <select name="age_range" id="" style="height: 40px;
+                                width: 100%;
+                                border-radius: 7px;">
+                                    <option value="15 - 25">15 - 25</option>
+                                    <option value="26 - 36">26 - 36</option>
+                                    <option value="47 - 57">47 - 57</option>
+                                    <option value="56 - 67">56 - 67</option>
+                                    <option value="68 - 78">68 - 78</option>
+                                    <option value="79 - 89">79 - 89</option>
+                                    <option value="90 - 100">90 - 100</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="full_name">Gender</label>
+
+                                <select name="gender" id="" style="height: 40px;
+                                    width: 100%;
+                                    border-radius: 7px;">
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                       
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="full_name">State Of Residence</label>
+                                <input class="form-control w-100" name="state" placeholder="Enter Your State Of Residence" type="text" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="full_name">Place Of Residence</label>
+                                <input class="form-control w-100" placeholder="Where are you coming from?" name="location" type="text" required>
+                            </div>
+                            <div class="d-flex form-group" style="align-self: self-end;padding-left: 5px;"><label for="">Will you be in need of Accomodation?</label> <input type="checkbox" name="accomodation"></div>
                         </div>
-                        <div class="d-flex form-group"><label for="">will You be in need of Accomodation?</label> <input type="checkbox" name="accomodation"></div>
-                        <div class="reg-btn-container">
+                        <div class="reg-btn-container" style="text-align-last: center;">
                             <button type="submit" class="reg regsiter-btn mt-2 px-3 py-2 ">Register</button>
                         </div>
                     </form>

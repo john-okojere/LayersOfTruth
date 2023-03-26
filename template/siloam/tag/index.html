@@ -15,7 +15,7 @@
 <header>
     <style>
         .row {
-            padding: 2rem 4rem;
+            padding: 2rem;
         }
         
         .d-flex {
@@ -25,19 +25,25 @@
         header {
             margin-bottom: 10vh !important;
         }
+        
+        @media screen and (max-width:860px) {
+            .row {
+                padding: 0;
+            }
+        }
     </style>
     <nav class="d-flex container">
         <div class="nav-header">
-            <div class="main_logo"></div>
+            <a href="/">
+                <div class="main_logo"></div>
+            </a>
         </div>
         <div class="nav-items d-flex">
             <ul class="list-group-horizontal d-flex p-3 m-0">
                 <li class="list-group-item">
                     <a href="/">Home</a>
                 </li>
-                <li class="list-group-item">
-                    <a href="#">Blog</a>
-                </li>
+
                 <li class="list-group-item">
                     <a href="{% url 'siloam'  %}">Siloam 2023</a>
                 </li>
@@ -54,7 +60,6 @@
         </div>
         <div class="menu">
             <div class="menu_icon" id="menu_icon"><i class=" fas fa-bars"></i></div>
-            <a class="btn btn-success" href="#">Give Online</a>
             <div id="menu_content">
                 <div id="menu_background" class="menu_background" style="background-color: rgba(0, 0, 0, 0.849);overflow: hidden; height: 100%; width: 100vw; position: fixed; top: 0;left: 0; z-index: 8;"></div>
                 <div class="menu_list slide-bl">
@@ -63,9 +68,7 @@
                         <li class="list-group-item">
                             <a href="/">Home</a>
                         </li>
-                        <li class="list-group-item">
-                            <a href="#">Blog</a>
-                        </li>
+
                         <li class="list-group-item">
                             <a href="{% url 'siloam' %}">Siloam 2023</a>
                         </li>
@@ -88,11 +91,12 @@
 <body>
 
     <div class="row justify-content-around">
-        <div class="message col-md-6 col-sm-12">
+        <div class="message col-md-6 col-sm-12 text-center">
             <h2 id="message_title">CONGRATULATIONS {{attendee.full_name|upper}}</h2>
+            <br>
             <p id="text"> Congrats you've successfully been registered for the SILOAM 2023 annual conference, your ID number was genrated automatically also and will be used to make reservations for you. we will info on the latest updates
             </p>
-            <br>
+            <div class="m-4" style="margin: 10px;"></div>
 
             <!-- <div class="vid"> -->
             <video nodownload autoplay=true controls loop class="vid">
@@ -113,7 +117,7 @@
 
         </div>
         <div class="row  col-lg-6 col-12" style="justify-content: center;">
-            <section class=" guest col-6 col-lg-3">
+            <section class=" guest col-md-6 ">
                 <div class="card">
                     <!-- <div class="tags"> -->
                     <div class="top">
@@ -144,7 +148,7 @@
                     <!-- </div> -->
                 </div>
             </section>
-            <section class="guest col-6 col-lg-3">
+            <section class="guest col-md-6 ">
                 <div class="card">
                     <!-- <div class="tags"> -->
                     <div class="top">
