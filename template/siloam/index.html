@@ -65,7 +65,8 @@
     }
     
     .list-group-item {
-        margin: 0 2rem;
+        margin: 0;
+        margin-left: 2rem;
     }
 </style>
 
@@ -97,6 +98,18 @@
             display: flex;
             justify-content: space-between;
             width: 100%;
+        }
+        
+        @media screen and (min-height:800px) {
+            .header>div {
+                height: 65vh !important;
+            }
+            .header {
+                min-height: 65vh !important;
+            }
+            .info {
+                height: 55vh !important;
+            }
         }
         
         .header>div {
@@ -170,7 +183,7 @@
                         </div>
                         <div class="d-flex">
                             <div class="nav-items d-flex">
-                                <ul class="list-group-horizontal d-flex p-3 m-0">
+                                <ul class="list-group-horizontal d-flex py-3 m-0">
                                     <li class="list-group-item">
                                         <a href="/">Home</a>
                                     </li>
@@ -255,10 +268,12 @@
                             </div>
 
                         </div>
-                        <div class="headimage" style="text-align-last: center;max-width:400px; margin:auto;align-self: center;">
-                            <img src="{%static 'header_main.png' %}" style="width:100%;border-radius: 10px;
+                        <div style="justify-self: right;">
+                            <div class="headimage" style="text-align-last: center;max-width:400px; margin:auto;align-self: center;">
+                                <img src="{%static 'header_main.png' %}" style="width:100%;border-radius: 10px;
                             width: 100%;
                             height: 400px;" alt="">
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -364,7 +379,15 @@
         </div>
         <div class="calender">
             <section class="event_detail" style="">
-                <h1 class="p-2"> <i class="fa fa-calendar"></i> 4 Days Conference</h1>
+                <div>
+                    <div class="d-flex" style=" flex-direction: row;justify-content: space-evenly;font-weight: bold;">
+                        <h1><i class="fa fa-calendar" style="font-size: 72px;"></i></h1>
+                        <div>
+                            <h2 style=" border-bottom : 4px solid #8A5D04 ;"> 4 days conference</h2>
+                            <h4 style="margin-top: 1rem;">7<sup>th</sup> - 9<sup>th</sup> April 2023</h4>
+                        </div>
+                    </div>
+                </div>
                 <div class="countdown text-white">
 
                     <h1>
@@ -381,7 +404,7 @@
             </section>
             <style>
                 .day h1 {
-                    border: 1px solid white;
+                    border: 1px solid #8A5D04;
                     border-radius: 15px;
                     width: fit-content;
                     margin: 2rem auto;
@@ -560,41 +583,42 @@
                 }
             }
         </style>
+        <div class="bookings" style="margin:2rem 0;min-height:70vh">
+            <h4 class="my-5" style="text-align:center"> <span style="font-weight:bold">Venue:</span><br> D'Cush Events Center. <br> Opp. Military Depot, Mando, Kaduna </h4>
 
-        <section class="bookings d-flex" style="margin:2rem 0;min-height:70vh">
-            <div class="map event_detail" style="text-align-last: center;">
-                <div style="">
-                    <h6 style="text-align:left"> <span style="font-weight:bold">Venue:</span><br> D'Cush Events Center. <br> Opp. Military Depot, Mando, Kaduna </h6>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.9206166385543!2d7.426530200000002!3d10.585379600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11b2cbb2a6baa9fd%3A0x54275afd38993604!2sD%20Cush%20Events%20Center!5e0!3m2!1sen!2sng!4v1679742759232!5m2!1sen!2sng"
-                        width="100%" height="100%" style="border:0; border-radius: 15px; min-height: 50vh;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
-                <div id="registerform" class="form text-white">
-                    <form id="register" method="post" action="">
-                        {% csrf_token %}
-                        <div class="form_text py-3">
-                            <h1>Online Registration</h1>
-                            <p>Registration is free and compulsory as it will help facilitate the running of things during the programme. Accommodation and feeding are also available and free.
-                            </p>
+            <section class=" d-flex">
+                <div class="map event_detail" style="text-align-last: center;">
+                    <div style="">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.9206166385543!2d7.426530200000002!3d10.585379600000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x11b2cbb2a6baa9fd%3A0x54275afd38993604!2sD%20Cush%20Events%20Center!5e0!3m2!1sen!2sng!4v1679742759232!5m2!1sen!2sng"
+                            width="100%" height="100%" style="border:0; border-radius: 15px; min-height: 50vh;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> </div>
+                    <div id="registerform" class="form text-white">
+                        <form id="register" method="post" action="">
+                            {% csrf_token %}
+                            <div class="form_text py-3">
+                                <h1>Online Registration</h1>
+                                <p>Registration is free and compulsory as it will help facilitate the running of things during the programme. Accommodation and feeding are also available and free.
+                                </p>
 
-                        </div>
-                        <div class="pp block" style="    padding: 0;
+                            </div>
+                            <div class="pp block" style="    padding: 0;
                         margin: 0;
                         max-width: 100%;">
-                            <div class="form-group">
-                                <label for="full_name">Full Name</label>
-                                <input id="full_name" class="form-control" name="full_name" placeholder="Enter Your Full Name" type="text" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="full_name">Phone Number</label>
-                                <input class="form-control w-100" name="phone" placeholder="Enter Your Phone Number" type="text" required>
-                            </div>
+                                <div class="form-group">
+                                    <label for="full_name">Full Name</label>
+                                    <input id="full_name" class="form-control" name="full_name" placeholder="Enter Your Full Name" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="full_name">Phone Number</label>
+                                    <input class="form-control w-100" name="phone" placeholder="Enter Your Phone Number" type="text" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="full_name">Local Assembly</label>
-                                <input class="form-control w-100" placeholder="Your Home Church" name="local_assembly" type="text" required>
-                            </div>
-                            <div class="form-group" style="align-self: self-end;">
-                                <label for="full_name">Age Range</label>
-                                <select name="age_range" id="" style="height: 40px;
+                                <div class="form-group">
+                                    <label for="full_name">Local Assembly</label>
+                                    <input class="form-control w-100" placeholder="Your Home Church" name="local_assembly" type="text" required>
+                                </div>
+                                <div class="form-group" style="align-self: self-end;">
+                                    <label for="full_name">Age Range</label>
+                                    <select name="age_range" id="" style="height: 40px;
                                 width: 100%;
                                 border-radius: 7px;">
                                     <option value="15 - 25">15 - 25</option>
@@ -605,37 +629,37 @@
                                     <option value="79 - 89">79 - 89</option>
                                     <option value="90 - 100">90 - 100</option>
                                 </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="full_name">Gender</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="full_name">Gender</label>
 
-                                <select name="gender" id="" style="height: 40px;
+                                    <select name="gender" id="" style="height: 40px;
                                     width: 100%;
                                     border-radius: 7px;">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                        
                                     </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="full_name">State Of Residence</label>
-                                <input class="form-control w-100" name="state" placeholder="Enter Your State Of Residence" type="text" required>
-                            </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="full_name">State Of Residence</label>
+                                    <input class="form-control w-100" name="state" placeholder="Enter Your State Of Residence" type="text" required>
+                                </div>
 
-                            <div class="form-group">
-                                <label for="full_name">Place Of Residence</label>
-                                <input class="form-control w-100" placeholder="L.G.A, Street Of Residence " name="location" type="text" required>
+                                <div class="form-group">
+                                    <label for="full_name">Place Of Residence</label>
+                                    <input class="form-control w-100" placeholder="L.G.A, Street Of Residence " name="location" type="text" required>
+                                </div>
+                                <div class="d-flex form-group" style="align-self: self-end;padding-left: 5px;"><label for="">Will you be in need of Accomodation?</label> <input type="checkbox" name="accomodation"></div>
                             </div>
-                            <div class="d-flex form-group" style="align-self: self-end;padding-left: 5px;"><label for="">Will you be in need of Accomodation?</label> <input type="checkbox" name="accomodation"></div>
-                        </div>
-                        <div class="reg-btn-container" style="text-align-last: center;">
-                            <button type="submit" class="reg regsiter-btn mt-2 px-3 py-2 ">Register</button>
-                        </div>
-                    </form>
+                            <div class="reg-btn-container" style="text-align-last: center;">
+                                <button type="submit" class="reg regsiter-btn mt-2 px-3 py-2 ">Register</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        </section>
-
+            </section>
+        </div>
     </main>
 
     <hr>
