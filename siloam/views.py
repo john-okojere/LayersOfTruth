@@ -37,15 +37,8 @@ def registerSiloam(request):
 
 def registeredlist(request):
     registered = Attendee.objects.all()
-    page = request.GET.get('page', 1)
-    listj = Paginator(registered, 6)
-    try:
-        main = listj.page(page)
-    except PageNotAnInteger:
-        main = listj.page(1)
-    except EmptyPage:
-        main = listj.page(listj.num_pages)
-    return render(request, 'siloam/dashboard/registered.html',{'registered':main})
+    
+    return render(request, 'siloam/dashboard/registered.html',{'registered':registered})
 
 def SiloamTag(request, pk):
     attendee = Attendee.objects.get(seat_number=pk)
@@ -79,15 +72,8 @@ def pastorstags(request):
 def AttendancDetailList(request, pk):
     lists = CreateAttendance.objects.get(id=pk)
     attendance = Attendance.objects.filter(attendance=lists)
-    page = request.GET.get('page', 1)
-    listj = Paginator(attendance, 6)
-    try:
-        main = listj.page(page)
-    except PageNotAnInteger:
-        main = listj.page(1)
-    except EmptyPage:
-        main = listj.page(listj.num_pages)
-    return render(request, 'siloam/dashboard/attendace.html', {'list':lists,'attendance':main})
+    
+    return render(request, 'siloam/dashboard/attendace.html', {'list':lists,'attendance':attendance})
 
 
 @login_required
@@ -100,15 +86,8 @@ def PastorAttendanceList(request):
 def PastorAttendanceDetailList(request, pk):
     lists = CreateAttendance.objects.get(id=pk)
     attendance = PastorAttendance.objects.filter(attendance=lists)
-    page = request.GET.get('page', 1)
-    listj = Paginator(attendance, 6)
-    try:
-        main = listj.page(page)
-    except PageNotAnInteger:
-        main = listj.page(1)
-    except EmptyPage:
-        main = listj.page(listj.num_pages)
-    return render(request, 'siloam/dashboard/Pastor_attendace.html', {'list':lists,'attendance':main})
+   
+    return render(request, 'siloam/dashboard/Pastor_attendace.html', {'list':lists,'attendance':attendance})
 
 
 @login_required
@@ -121,15 +100,8 @@ def WorkerAttendanceList(request):
 def WorkerAttendanceDetailList(request, pk):
     lists = CreateAttendance.objects.get(id=pk)
     attendance = WorkerAttendance.objects.filter(attendance=lists)
-    page = request.GET.get('page', 1)
-    listj = Paginator(attendance, 6)
-    try:
-        main = listj.page(page)
-    except PageNotAnInteger:
-        main = listj.page(1)
-    except EmptyPage:
-        main = listj.page(listj.num_pages)
-    return render(request, 'siloam/dashboard/worker_attendace.html', {'list':lists,'attendance':main})
+   
+    return render(request, 'siloam/dashboard/worker_attendace.html', {'list':lists,'attendance':attendance})
 
 
 @login_required
