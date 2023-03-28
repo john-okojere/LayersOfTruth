@@ -6,10 +6,6 @@
         padding-bottom: 0;
     }
     
-    header {
-        background: black;
-    }
-    
     body {
         background-color: black;
         color: white;
@@ -37,13 +33,15 @@
                 <h2>Create a Layers Of Truth Account</h2>
             </div>
             {% csrf_token %}
-           {{form|crispy}}
+            <div>
+                {{form|crispy}}
+            </div>
 
             <div class="btn-submitAccount"><button type="submit" class="btnCreateAccount active"> Create Account</button></div>
 
         </form>
 
-        
+
     </div>
 
 
