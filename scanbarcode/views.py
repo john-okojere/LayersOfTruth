@@ -268,21 +268,21 @@ def accommodation_card(request,list, pk):
 
 def verify_card(request,list, uid):
     list = CreateAttendance.objects.get(id=list)
-    try:
+    if Worker.objects.get(uid=uid):
         person = Worker.objects.get(uid=uid)
         try:
             attendances = WorkerAttendance.objects.get(worker=person, attendance=list)
         except:
             attendances = WorkerAttendance.objects.create(attendance=list, worker=person, time_in = date_time_now)
         return JsonResponse({"attendance": f'{attendances.worker}'}, status=200)
-    except:
+    elif Attendee.objects.get(uid=uid):
         person = Attendee.objects.get(uid=uid)
         try:
             attendances = Attendance.objects.get(attendee=person, attendance=list)
         except:
             attendances = Attendance.objects.create(attendance=list, attendee=person, time_in = date_time_now)
         return JsonResponse({"attendance": f'{attendances.attendee}'}, status=200)
-    finally:
+    elif Pastor.objects.get(uid=uid):
         person = Pastor.objects.get(uid=uid)
         try:
             attendances = PastorAttendance.objects.get(pastor=person, Pastorattendance=list)
