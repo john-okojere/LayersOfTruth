@@ -35,14 +35,7 @@
 
     <div class="containMenu">
         {% if request.user.role == "ADMIN" or request.user.role == "HOD" and request.user.worker.department == dept %}
-        <div class="menus">
-            <a href="#" id="scanattendance">
-                <div>
-                    <i class="fa fa-pen-alt" aria-hidden="true"></i>
-                    <h3>Create Unit</h3>
-                </div>
-            </a>
-        </div>
+       
        <div class="menus">
             <a href="{% url 'listofhous' dept.id %}" >
                 <div>
