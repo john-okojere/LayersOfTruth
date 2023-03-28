@@ -132,7 +132,7 @@
                 csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val()
             },
             success: function(data) {
-                window.location.href = "/department/" + data.id
+                window.location.href = "/department/Dashboard"
             },
             error: function(err) {
                 console.log(err)
