@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=%of=dlp=wh8*zs1q40**@gf&)cs_+8t=-27j@ceu%-r5-cryr'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -135,7 +135,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 STATIC_URL = 'static/'
 STATIC_ROOT = 'static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = '/media'
 
 
 # Default primary key field type
