@@ -25,6 +25,8 @@
                     <div>
                         <h2> {{user.role |title}} Dashboard </h2>
                         <p>here is your overview</p>
+                        {% if messages %} {% for message in messages %}
+                        <div class="alert alert-success">{{message}}</div> {% endfor %}{% endif %}
                     </div>
                 </div>
                 <br>
@@ -147,9 +149,7 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
-            {% if request.user.student %}
-            {% else %}
+            {% endif %} {% if request.user.student %} {% else %}
             <div class="menus">
                 <a href="{% url 'academyform' %}">
                     <div>

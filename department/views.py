@@ -4,6 +4,7 @@ from user.models import User
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Q
 from .forms import AcademicForm
+from django.contrib import messages
 
 def departmentDashboard(request):
     dept = Department.objects.all()
@@ -237,6 +238,7 @@ def fillAcademy(request):
             student = form.save(commit=False)
             student.user = request.user
             form.save()
+            messages.success(request, "Your academic details has been Uploaded successfully")
             return redirect('profile')
     else:
         form = AcademicForm()

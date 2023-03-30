@@ -76,6 +76,7 @@ class Pastor(models.Model):
     
 class Academics(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="student")
+    School = models.CharField(max_length=255)
     matric_number = models.CharField(max_length=255)
     falcuty = models.CharField(max_length=255)
     department = models.CharField(max_length=255)
