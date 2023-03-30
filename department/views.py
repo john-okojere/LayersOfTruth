@@ -3,6 +3,7 @@ from .models import Department, Unit, Worker, Task, Pastor
 from user.models import User
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Q
+from .forms import AcademicForm
 
 def departmentDashboard(request):
     dept = Department.objects.all()
@@ -227,3 +228,16 @@ def addHou(request, pk, worker):
         'phone':dept.hou.phone,
     }
     return JsonResponse(context, safe=False)
+
+
+def fillAcademy(request):
+    if request.method == "POST":
+        form = AcademicForm(request.POST, request.FILES)
+        if form.is_valid():
+            student = form.save(commit=False)
+            student.user = request.user
+            form.save()
+    else:
+        form = AcademicForm()
+        return('profile')
+    return render(request, 'department/formaca.html', {'form':form})

@@ -74,3 +74,18 @@ class Pastor(models.Model):
     def __str__(self) -> str:
         return f'Pastor {self.user.last_name} {self.user.first_name}'
     
+class Academics(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="student")
+    matric_number = models.CharField(max_length=255)
+    falcuty = models.CharField(max_length=255)
+    department = models.CharField(max_length=255)
+    program = models.CharField(max_length=255)
+    time_table = models.ImageField(upload_to="timetable")
+    lvl1_cgpa = models.CharField(max_length=255, null=True, blank=True)
+    lvl2_cgpa = models.CharField(max_length=255, null=True, blank=True)
+    lvl3_cgpa = models.CharField(max_length=255, null=True, blank=True)
+    lvl4_cgpa = models.CharField(max_length=255, null=True, blank=True)
+    lvl5_cgpa = models.CharField(max_length=255, null=True, blank=True)
+    def __str__(self):
+        return self.user.username
+    

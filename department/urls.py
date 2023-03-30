@@ -1,6 +1,6 @@
 
 from django.urls import path, re_path
-from .views import departmentDashboard, createDepartment, departmentview, unitview, unitDashboard, createunit, workersform, getunits, joinDept,workerslist, deptworkerlist,pendingworkerslist, search_worker, asearch_worker, approveworker, approvedworkerslist, createTask, ListTask,unitmember, listofHod, addHou, listofHous, addHod, listofPastors, addPastor
+from .views import departmentDashboard, createDepartment, departmentview, unitview, unitDashboard, createunit, workersform, getunits, joinDept,workerslist, deptworkerlist,pendingworkerslist, search_worker, asearch_worker, approveworker, approvedworkerslist, createTask, ListTask,unitmember, listofHod, addHou, listofHous, addHod, listofPastors, addPastor, fillAcademy
 urlpatterns = [
     path('Dashboard/', departmentDashboard, name="department-dashboard"),
     path('create/', createDepartment,name="create-department"),
@@ -36,5 +36,9 @@ urlpatterns = [
 
 
     path('<int:pk>/hous/', listofHous, name="listofhous"),
-    path('add/<int:pk>/hous/<int:worker>', addHou, name="addhous")
+    path('add/<int:pk>/hous/<int:worker>', addHou, name="addhous"),
+    
+    path('academic-Form', fillAcademy, name="academyform")
+
+
 ]
