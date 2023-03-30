@@ -98,7 +98,7 @@
             <tbody>
                 {% for attendee in registered %}
                 <tr>
-                    <td>{{attendee.id}}</td>
+                    <td>{{forloop.counter}}</td>
                     <td>{{attendee.full_name}}</td>
                     <td>{{attendee.phone}}</td>
                     <td>{{attendee.local_assembly}}</td>
