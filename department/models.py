@@ -86,6 +86,7 @@ class Academics(models.Model):
     lvl3_cgpa = models.CharField(max_length=255, null=True, blank=True)
     lvl4_cgpa = models.CharField(max_length=255, null=True, blank=True)
     lvl5_cgpa = models.CharField(max_length=255, null=True, blank=True)
+    
     def __str__(self):
-        return self.user.username
+        return f'{self.user.username}'
     
