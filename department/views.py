@@ -237,7 +237,7 @@ def fillAcademy(request):
             student = form.save(commit=False)
             student.user = request.user
             form.save()
+            return redirect('profile')
     else:
         form = AcademicForm()
-        return('profile')
     return render(request, 'department/formaca.html', {'form':form})
