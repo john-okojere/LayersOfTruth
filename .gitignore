@@ -2,8 +2,9 @@ db.sqlite3
 media/
 siloam/static/
 venv/
-.env
 
+
+backend/.env
 backend/__pycache__
 department/__pycache__
 scanbarcode/__pycache__
