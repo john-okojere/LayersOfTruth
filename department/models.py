@@ -33,7 +33,7 @@ class Worker(models.Model):
     
     def qr_code(self):
         qr_code = make(self.uid)
-        basename = str(self.user.username) + '_QR_CODE.png'
+        basename = str(self.id) + '_QR_CODE.png'
         qr_code.save('media/QR_CODE/Worker/{}'.format(basename))
         return '/media/QR_CODE/Worker/{}'.format(basename)
     

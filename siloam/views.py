@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Attendee, Attendance, Contact, CreateAttendance, WorkerAttendance, PastorAttendance
+from .models import Attendee, Attendance, Contact, CreateAttendance, WorkerAttendance, PastorAttendance, Specialcard, SpecialAttendance
 from department.models import Worker, Pastor
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -7,6 +7,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import JsonResponse
 from django.core.serializers import serialize
 from django.db.models import Q
+from .forms import CardForm
 
 def registerSiloam(request):
     if request.method =="POST":
@@ -63,6 +64,22 @@ def workerstags(request):
 
 
 @login_required
+def specialstags(request):
+    attendance = Specialcard.objects.all()
+    return render(request, 'siloam/tag/special.html', {'attendance':attendance})
+
+def addspecialcard(request):
+    if request.method == "POST":
+        form = CardForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('special-tags')
+    else:
+        form = CardForm()
+    return render(request, 'siloam/tag/special_tag_form.html', {'form':form})
+
+
+@login_required
 def pastorstags(request):
     attendance = Pastor.objects.all()
     return render(request, 'siloam/tag/pastors_tag.html', {'attendance':attendance})
@@ -88,6 +105,20 @@ def PastorAttendanceDetailList(request, pk):
     attendance = PastorAttendance.objects.filter(attendance=lists)
    
     return render(request, 'siloam/dashboard/Pastor_attendace.html', {'list':lists,'attendance':attendance})
+
+
+@login_required
+def SpecialAttendanceList(request):
+    attendance = CreateAttendance.objects.all().order_by('-created_date')
+    return render(request, 'siloam/dashboard/Special_attendace_list.html', {'attendance':attendance})
+
+
+@login_required
+def SpecialAttendanceDetailList(request, pk):
+    lists = CreateAttendance.objects.get(id=pk)
+    attendance = SpecialAttendance.objects.filter(attendance=lists)
+   
+    return render(request, 'siloam/dashboard/Special_attendace.html', {'list':lists,'attendance':attendance})
 
 
 @login_required

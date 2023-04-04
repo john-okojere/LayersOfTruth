@@ -63,16 +63,15 @@
         min-height: 10vh;
     }
 </style>
-<p class="container mt-3 text-white">
-    <a href="{% url 'siloam-dashboard' %}" class="text-white">Silaom Dashbord</a> /
-    <a href="{% url 'siloam-attendance-list' %}" class="text-white">Attendance List</a>
+<p class="container mt-3">
+    <a href="{% url 'siloam-dashboard' %}" class="text-white">Silaom Dashbord</a>
 </p>
 <main class="list container">
     <link rel="stylesheet" href="{% static 'siloam/dashboard/attendance.css' %}">
 
     <div class="title">
         <div>
-            <h1>Pastors Attendance For {{list.title|title }} <br><small> {{list.created_date}}</small></h1>
+            <h1>Special Attendance List</h1>
         </div>
         <div style="background-color: white; border-radius:10px; display: grid;grid-template-columns: 70% 30%;margin-top: 1rem;">
             <input type="search" name="name" id="name_search" placeholder="Search"> {% csrf_token %}
@@ -84,30 +83,19 @@
             <thead class="table-head">
                 <tr>
                     <th>S/N</th>
-                    <th>Username</th>
-                    <th>last Name</th>
-                    <th>First Name</th>
-                    <th> Department</th>
-                    <th> Unit</th>
-                    <th>Arrived/ Departed</th>
-                    <th>Transportation</th>
-                    <th>Feeding</th>
-                    <th>Accomodation</th>
+                    <th>Name</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
                 {% for attendee in attendance %}
                 <tr>
                     <td>{{attendee.id}}</td>
-                    <td>{{attendee.pastor.user.username}}</td>
-                    <td>{{attendee.pastor.user.last_name}}</td>
-                    <td>{{attendee.pastor.user.first_name}}</td>
-                    <td>{{attendee.pastor.department}}</td>
-                    <td>{{attendee.pastor.unit}}</td>
-                    <td>{{attendee.time_in.time}} / {{attendee.time_out.time}}</td>
-                    <td>{% if attendee.transport %} Yes {% else %} No {% endif %}</td>
-                    <td>{% if attendee.food %} Yes {% else %} No {% endif %}</td>
-                    <td>{% if attendee.accomodation %} Yes {% else %} No {% endif %}</td>
+                    <td>
+                        <a href="{% url 'Specials-attendance-detail-list' attendee.id %}">{{attendee.title}}</a>
+                    </td>
+                    <td>
+                        <a href="{% url 'Specials-attendance-detail-list' attendee.id %}">{{attendee.created_date}}</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -144,7 +132,7 @@
         console.log(name.value)
         name.addEventListener("input", () => {
             $.ajax({
-                url: `/siloam2023/attendance/search-worker/${name.value}`,
+                url: `/siloam2023/attendance/search/${name.value}`,
                 method: 'POST',
                 data: {
                     name: name.value,
@@ -160,15 +148,9 @@
                             $('tbody').append(`
                              <tr>
                                 <td>${attendee.id}</td>
-                                <td>${attendee.worker.user.username}</td>
-                    <td>${attendee.worker.user.last_name}</td>
-                    <td>${attendee.worker.user.first_name}</td>
-                    <td>${attendee.worker.department}</td>
-                    <td>${attendee.worker.unit}</td>
-                                <td>${attendee.time_in} / ${attendee.time_out}</td>
-                                <td>${attendee.transport}</td>
-                                <td>${attendee.food}</td>
-                                <td>${attendee.accomodation }</td>
+                                <td>${attendee.title}</td>
+                                <td>${attendee.date}</td>
+                               
                             </tr>
                             `);
                         }

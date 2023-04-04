@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Attendee, Attendance, Contact, CreateAttendance, WorkerAttendance, PastorAttendance
+from .models import Attendee, Attendance, Contact, CreateAttendance, WorkerAttendance, PastorAttendance, Specialcard
 
 
 @admin.register(Attendee)
@@ -9,6 +9,7 @@ class AttendeAdmin(admin.ModelAdmin):
     search_fields = ('full_name', 'age', 'gender', 'accomodation', 'local_assembly')
     ordering = ('seat_number',)
 
+admin.site.register(Specialcard)
 admin.site.register(CreateAttendance)
 admin.site.register(WorkerAttendance)
 admin.site.register(PastorAttendance)

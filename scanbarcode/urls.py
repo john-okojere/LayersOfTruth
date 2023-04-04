@@ -4,7 +4,7 @@ from .views import verify_card, Attendance_scanner,food_verify_card, Food_scanne
 urlpatterns = [
     path('Attendance/<int:pk>',Attendance_scanner , name="scanner"),
     path('card/<int:list>/<uuid:uid>', verify_card, name="verify_card"),
-
+ 
     path('Food/<int:pk>',Food_scanner , name="food_scanner"),
     path('Food-card/<int:list>/<uuid:pk>', food_verify_card, name="food_verify_card"),
  
