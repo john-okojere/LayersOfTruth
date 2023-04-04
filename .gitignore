@@ -4,7 +4,7 @@ siloam/static/
 venv/
 
 
-backend/config.env
+backend/.env
 backend/__pycache__
 department/__pycache__
 scanbarcode/__pycache__
