@@ -60,6 +60,16 @@ def siloamtags(request):
 @login_required
 def workerstags(request):
     attendance = Worker.objects.all()
+    for att in attendance:
+        if len(str(abs(att.id))) == 4:
+            zeros = ""
+        elif len(str(abs(att.id))) == 3:
+            zeros = "0"
+        elif len(str(abs(att.id))) == 2:
+            zeros = "00"
+        elif len(str(abs(att.id))) == 1:
+            zeros = "000"
+        att.id = zeros+str(att.id) 
     return render(request, 'siloam/tag/workers_tag.html', {'attendance':attendance})
 
 

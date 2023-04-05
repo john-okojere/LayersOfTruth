@@ -38,8 +38,9 @@
     </style>
 
     <h2> <a href="#" style="background-color: black !important;padding: 1rem;display: inline-block;" onclick="window.print()">print</a> </h2>
+    <h2> <a href="#" style="background-color: black !important;padding: 1rem;display: inline-block;" onclick="screenshot()">image</a> </h2>
 
-    <div class="row  justify-content-around">
+    <div id="screen_img" class="row  justify-content-around">
         {% for attendee in attendance %} {% if attendee.user.pastor %} {% else %}
         <div class="grid border-1 d-flex col-6" style="justify-content: center;">
             <section class=" worker col-6">
@@ -87,7 +88,7 @@
                         </div>
                     </div>
 
-                    <div class="details mt-2">
+                    <div class="details mt-2" style="font-weight:bold;">
 
                         <!-- <p id="department">Wine Press</p><br> -->
 
@@ -108,8 +109,25 @@
         </div>
         {% endif %} {% endfor %}
     </div>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script>
+        document.getElementById("screen_img_btn")
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js "></script>
+    <script>
+        function screenshot() {
+            const screenimage = document.getElementById('screen_img');
+            html2canvas(screenimage).then((canvas) => {
+                const base64Image = canvas.toDataURL("image/png");
+                var anchor = document.createElement('a');
+                anchor.setAttribute("href", base64Image);
+                anchor.setAttribute('download', "Siloam_Worker.png")
+                anchor.click()
+                anchor.remove()
+            })
+        }
+    </script>
     <script>
         $("#menu_content").hide();
         $('#menu_icon').click(function(e) {
