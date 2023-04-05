@@ -21,22 +21,8 @@ class Attendee(models.Model):
     accomodation = models.BooleanField(default=False ,null=True, blank=True)
     location = models.CharField(max_length=255 ,null=True, blank=True)
     created = models.DateTimeField(auto_now=True)
-    room_number = models.CharField(max_length=5, default='0')
 
-    def set_room_number(self):
-        num = 0
-        if self.accomodation == True:
-            people  = Attendee.objects.filter(accomodation=True)
-            beds = ['a','b','c', 'd', 'e']
-            room_numbers = []
-
-            for i,p in enumerate(people):
-                for a in beds:
-                    room_numbers.append(str(i+1)+a)
-            print(room_numbers) 
-            ind = people[self.id]
-            prev = people[ind-1]
-            self.room_number = str(prev+1)
+    
 
     def qr_code(self):
         qr_code = make(self.uid)
