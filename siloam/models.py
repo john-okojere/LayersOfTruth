@@ -10,17 +10,33 @@ import uuid
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 class Attendee(models.Model):
-    seat_number = models.IntegerField()
+    seat_number = models.IntegerField(null=True, blank=True)
     uid = models.UUIDField(default=uuid.uuid4, editable=False)
-    full_name = models.CharField(max_length=255)
-    phone = models.CharField(max_length=20)
-    local_assembly = models.CharField(max_length=255)
-    age = models.CharField(max_length=20)
-    gender = models.CharField(max_length=20)
-    state = models.CharField(max_length=20)
-    accomodation = models.BooleanField(default=False)
-    location = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=255 ,null=True, blank=True)
+    phone = models.CharField(max_length=20 ,null=True, blank=True)
+    local_assembly = models.CharField(max_length=255 ,null=True, blank=True)
+    age = models.CharField(max_length=20 ,null=True, blank=True)
+    gender = models.CharField(max_length=20 ,null=True, blank=True)
+    state = models.CharField(max_length=20 ,null=True, blank=True)
+    accomodation = models.BooleanField(default=False ,null=True, blank=True)
+    location = models.CharField(max_length=255 ,null=True, blank=True)
     created = models.DateTimeField(auto_now=True)
+    room_number = models.CharField(max_length=5, default='0')
+
+    def set_room_number(self):
+        num = 0
+        if self.accomodation == True:
+            people  = Attendee.objects.filter(accomodation=True)
+            beds = ['a','b','c', 'd', 'e']
+            room_numbers = []
+
+            for i,p in enumerate(people):
+                for a in beds:
+                    room_numbers.append(str(i+1)+a)
+            print(room_numbers) 
+            ind = people[self.id]
+            prev = people[ind-1]
+            self.room_number = str(prev+1)
 
     def qr_code(self):
         qr_code = make(self.uid)
@@ -33,10 +49,11 @@ class Attendee(models.Model):
     
     def save(self,*args, **kwargs):
         self.qr_code()
+        self.set_room_number()
         super(Attendee, self).save(*args, **kwargs)
 
     def __str__(self) :
-        return f'{self.full_name.title()}, Participant with seat number {self.seat_number}.'
+        return f'{self.full_name}, Participant with seat number {self.seat_number}.'
 
 CLASS_NAME = (
     ('headsteward','headsteward'),
