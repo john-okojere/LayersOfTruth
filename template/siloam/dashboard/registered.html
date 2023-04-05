@@ -74,13 +74,14 @@
         <div>
             <h1>Registered People for Siloam</h1>
         </div>
-        <div style="background-color: white; border-radius:10px; display: grid;grid-template-columns: 70% 30%;margin-top: 1rem;">
+        <button class="btn btn-warning" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        <div style="background-color: white; border-radius:10px; display: grid;grid-template-columns: 70% 30%;">
             <input type="search" name="name" id="name_search" placeholder="Search"> {% csrf_token %}
             <button class="filter">Filter</button>
         </div>
     </div>
     <div style="overflow-x: scroll;">
-        <table>
+        <table id="tbl_exporttable_to_xls">
             <thead class="table-head">
                 <tr>
                     <th>S/N</th>
@@ -139,6 +140,22 @@
         </div>
     </div>
     {% endif %}
+    <script src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script>
+        function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById('tbl_exporttable_to_xls');
+            var wb = XLSX.utils.table_to_book(elt, {
+                sheet: "sheet1"
+            });
+            return dl ?
+                XLSX.write(wb, {
+                    bookType: type,
+                    bookSST: true,
+                    type: 'base64'
+                }) :
+                XLSX.writeFile(wb, fn || ('Siloam2023_participants.' + (type || 'xlsx')));
+        }
+    </script>
     <script>
         const name = document.getElementById("name_search");
         console.log(name.value)

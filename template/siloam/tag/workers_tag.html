@@ -119,10 +119,10 @@
         function screenshot() {
             const screenimage = document.getElementById('screen_img');
             html2canvas(screenimage).then((canvas) => {
-                const base64Image = canvas.toDataURL("image/png");
+                const base64Image = canvas.toDataURL("image/svg");
                 var anchor = document.createElement('a');
                 anchor.setAttribute("href", base64Image);
-                anchor.setAttribute('download', "Siloam_Worker.png")
+                anchor.setAttribute('download', "Siloam_Worker.svg")
                 anchor.click()
                 anchor.remove()
             })
