@@ -64,7 +64,7 @@ def siloamtags(request):
             zeros = "00"
         elif len(str(abs(att.id))) == 1:
             zeros = "000"
-        att.id = zeros+str(att.id) 
+        att.id = zeros + str(att.id)
     return render(request, 'siloam/tag/tags.html', {'attendance':attendance})
 
 @login_required
@@ -86,6 +86,16 @@ def workerstags(request):
 @login_required
 def specialstags(request):
     attendance = Specialcard.objects.all()
+    for att in attendance:
+        if len(str(abs(att.id))) == 4:
+            zeros = ""
+        elif len(str(abs(att.id))) == 3:
+            zeros = "0"
+        elif len(str(abs(att.id))) == 2:
+            zeros = "00"
+        elif len(str(abs(att.id))) == 1:
+            zeros = "000"
+        att.id = zeros + str(att.id)
     return render(request, 'siloam/tag/special.html', {'attendance':attendance})
 
 def addspecialcard(request):
@@ -102,6 +112,16 @@ def addspecialcard(request):
 @login_required
 def pastorstags(request):
     attendance = Pastor.objects.all()
+    for att in attendance:
+        if len(str(abs(att.id))) == 4:
+            zeros = ""
+        elif len(str(abs(att.id))) == 3:
+            zeros = "0"
+        elif len(str(abs(att.id))) == 2:
+            zeros = "00"
+        elif len(str(abs(att.id))) == 1:
+            zeros = "000"
+        att.id = zeros + str(att.id)
     return render(request, 'siloam/tag/pastors_tag.html', {'attendance':attendance})
 
 
