@@ -363,7 +363,7 @@
 
                         <!-- <p id="department">Wine Press</p><br> -->
 
-                        <p id="ref_number" style="font-size: 15px !important;padding-top: 10px;">{% if attendee.name %}{{attendee.name}} {% endif %}</p>
+                        <p id="ref_number" style="font-size: 15px !important;padding-top: 10px;">{% if attendee.name %}{{attendee.name|title}} {% endif %}</p>
                         <p id="ref_number" style="font-size: 10px !important;padding-top: 5px;">{% if attendee.preview %}{{attendee.preview}} {% endif %}</p>
                     </div>
 
