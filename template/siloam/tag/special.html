@@ -339,7 +339,7 @@
 
                     <div class="position mt-3">
 
-                        <h1 class="category">{{attendee.title}}</h1>
+                        <h1 class="category">{% if attendee.title %}{{attendee.title}} {% endif %}</h1>
                     </div>
 
                     <!-- </div> -->
@@ -363,8 +363,8 @@
 
                         <!-- <p id="department">Wine Press</p><br> -->
 
-                        <p id="ref_number" style="font-size: 15px !important;padding-top: 10px;">{{attendee.name|upper}} {{attendee.user.first_name|upper}}</p>
-                        <p id="ref_number" style="font-size: 10px !important;padding-top: 5px;">{{attendee.preview|title}}</p>
+                        <p id="ref_number" style="font-size: 15px !important;padding-top: 10px;">{% if attendee.name %}{{attendee.name}} {% endif %}</p>
+                        <p id="ref_number" style="font-size: 10px !important;padding-top: 5px;">{% if attendee.preview %}{{attendee.preview}} {% endif %}</p>
                     </div>
 
                     <div class="p-2">
