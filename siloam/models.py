@@ -35,7 +35,6 @@ class Attendee(models.Model):
     
     def save(self,*args, **kwargs):
         self.qr_code()
-        self.set_room_number()
         super(Attendee, self).save(*args, **kwargs)
 
     def __str__(self) :
