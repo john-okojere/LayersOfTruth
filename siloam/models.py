@@ -50,10 +50,10 @@ CLASS_NAME = (
 )
 
 class Specialcard(models.Model):
-    name = models.CharField(max_length=50)
-    title = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, null=True, blank=True)
+    title = models.CharField(max_length=50, null=True, blank=True)
     uid = models.UUIDField(default=uuid.uuid4, editable=False)
-    preview = models.CharField(max_length=100)
+    preview = models.CharField(max_length=100, null=True, blank=True)
     classname = models.CharField(max_length=20, choices=CLASS_NAME)
     created_date = models.DateTimeField(auto_now=True)
 
