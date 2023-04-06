@@ -71,7 +71,7 @@ class Specialcard(models.Model):
         super(Specialcard, self).save(*args, **kwargs)
 
     def __str__(self) :
-        return f'{self.name.title()}, Special with seat number {self.id}.'
+        return f'{self.name}, Special with seat number {self.id}.'
 
 
 class CreateAttendance(models.Model):
