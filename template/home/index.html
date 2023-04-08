@@ -1,4 +1,18 @@
-{% extends "base.html" %} {% load static %} {% block header %}
+{% extends "base.html" %}
+
+{% block header %}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5V2MMZ6P03"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5V2MMZ6P03');
+</script>
+{% endblock header %}
+
+{% load static %} {% block header %}
 <style>
     #OurMinistries {
         margin: 4rem 0;
