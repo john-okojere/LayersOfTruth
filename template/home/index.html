@@ -1,7 +1,6 @@
 {% extends "base.html" %}
-{% load static %} 
 
-{% block header %}
+{% block head %}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V2MMZ6P03"></script>
 <script>
@@ -11,8 +10,9 @@
 
   gtag('config', 'G-5V2MMZ6P03');
 </script>
-{% endblock header %}
+{% endblock head %}
 
+{% load static %} 
 <style>
     #OurMinistries {
         margin: 4rem 0;
