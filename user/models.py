@@ -86,7 +86,6 @@ class OnlineSoul(models.Model):
         return f'{self.name} {self.phone}'
     
 
-
 class Prayers(models.Model):
     name = models.CharField(max_length=255)
     request = models.CharField(max_length=255)

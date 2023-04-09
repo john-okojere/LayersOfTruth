@@ -39,6 +39,10 @@ ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'user.User'
 
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+IMPORT_EXPORT_IMPORT_PERMISSION_CODE = 'delete' 
+IMPORT_EXPORT_EXPORT_PERMISSION_CODE = 'delete'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,7 +63,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
     'crispy_bootstrap5',
-    'fontawesomefree'
+    'fontawesomefree',
+    'import_export',
 
    
 ]

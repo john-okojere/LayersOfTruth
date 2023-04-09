@@ -95,7 +95,6 @@ class Attendance(models.Model):
         return f'{self.attendee.full_name.title()} seat number {self.attendee.seat_number}.'
 
 
-
 class WorkerAttendance(models.Model):
     attendance = models.ForeignKey(CreateAttendance, on_delete=models.CASCADE)
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
