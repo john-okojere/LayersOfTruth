@@ -63,9 +63,15 @@
         min-height: 10vh;
     }
 </style>
-<p class="container mt-3 text-white">
-    <a href="{% url 'siloam-dashboard' %}" class="text-white">Silaom Dashbord</a> /
-    <a href="{% url 'siloam-attendance-list' %}" class="text-white">Attendance List</a>
+<p class="container mt-3">
+    <a href="{% url 'workers-attendance-list' %}"><i class="fa fa-long-arrow-left text-white px-3" aria-hidden="true"></i></a>
+    <a href="{% url 'profile' %}" class="text-white"> Main Dashboard</a>
+    <span class="text-light px-2"> | </span> 
+    <a href="{% url 'siloam-dashboard' %}" class="text-white">Service Dashbord</a>
+    <span class="text-light px-2"> | </span> 
+    <a href="{% url 'workers-attendance-list' %}" class="text-white ">Attendance </a>
+    <span class="text-light px-2"> | </span> 
+    <a href="#" class="text-white border-bottom">List</a>
 </p>
 <main class="list container">
     <link rel="stylesheet" href="{% static 'siloam/dashboard/attendance.css' %}">

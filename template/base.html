@@ -24,25 +24,42 @@
         .brand {
             grid-gap: 0;
         }
+        
+        nav {
+            padding: 0rem 2rem;
+        }
+        
+        .menu_list {
+            text-align: left;
+            position: relative;
+            margin: 1rem;
+            right: auto;
+            top: auto;
+        }
     </style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5V2MMZ6P03"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5V2MMZ6P03"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-5V2MMZ6P03');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-5V2MMZ6P03');
+    </script>
 
 </head>
 
 <body>
 
     <header>
-        <nav class="d-flex container">
+        <nav class="d-flex ">
             <div class="nav-header">
-                <div class="main_logo"></div>
+                <a href="/">
+                    <div class="main_logo"></div>
+                </a>
             </div>
             <div class="d-flex">
                 <div class="nav-items d-flex">
@@ -50,7 +67,7 @@
                         <li class="list-group-item">
                             <a href="/">Home</a>
                         </li>
-                        
+
                         <li class="list-group-item">
                             <a href="{% url 'siloam' %}">Siloam 2023</a>
                         </li>
@@ -67,16 +84,16 @@
                 </div>
                 <div class="mt-3 menu">
                     <div class="menu_icon " id="menu_icon"><i class=" fas fa-bars "></i></div>
-                    <a class="btn btn-warning "href="/siloam2023">Siloam 2023</a>
+                    <a class="btn btn-warning " href="/siloam2023">Siloam 2023</a>
                     <div id="menu_content" class="text-dark">
-                        <div id="menu_background " class="menu_background " style="background-color: rgba(0, 0, 0, 0.849);overflow: hidden; height: 100%; width: 100vw; position: fixed; top: 0;left: 0; z-index: 8; ">
+                        <div id="menu_background " class="menu_background " style="background-color: rgba(0, 0, 0, 0.849);overflow: hidden; height: 100%; width: 100vw; position: fixed;top:80px;left: 0; z-index: 8; ">
                             <div class="menu_list ">
-                                <div class="text-right" id="menu_close" style="text-align: right;"><i class="fa fa-x"></i></div>
+                                <div class="text-right text-white" id="menu_close" style="text-align: right;"><i class="fa fa-x"></i></div>
                                 <ul class="list-group p-3 m-0 ">
                                     <li class="list-group-item ">
                                         <a href="/">Home</a>
                                     </li>
-                                   
+
                                     <li class="list-group-item ">
                                         <a href="{% url 'siloam' %} ">Siloam 2023</a>
                                     </li>
@@ -123,7 +140,14 @@
         $("#menu_content").hide();
         $('#menu_icon').click(function(e) {
             e.preventDefault();
-            $("#menu_content").show();
+            if ($("#menu_content").hide()) {
+                console.log('jjj')
+                $("#menu_content").show();
+            } else {
+                $("#menu_content").hide();
+                console.log('jjj')
+
+            }
         });
         $('#menu_close').click(function(e) {
             e.preventDefault();

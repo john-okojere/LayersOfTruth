@@ -64,7 +64,12 @@
     }
 </style>
 <p class="container mt-3">
-    <a href="{% url 'siloam-dashboard' %}" class="text-white">Silaom Dashbord</a>
+    <a href="{% url 'siloam-dashboard' %}"><i class="fa fa-long-arrow-left text-light px-3" aria-hidden="true"></i></a>
+    <a href="{% url 'profile' %}" class="text-light"> Main Dashboard</a>
+    <span class="text-light px-2"> | </span>
+    <a href="{% url 'siloam-dashboard' %}" class="text-light">Service Dashbord</a>
+    <span class="text-light px-2"> | </span>
+    <a href="#" class="text-light border-bottom">Email List</a>
 </p>
 <main class="list container">
     <link rel="stylesheet" href="{% static 'siloam/dashboard/attendance.css' %}">

@@ -42,8 +42,16 @@
     }
 </style>
 <div class="mt-5">
+    <p class="container mt-3">
+        <a href="{% url 'siloam-dashboard' %}"><i class="fa fa-long-arrow-left text-dark px-3" aria-hidden="true"></i></a>
+        <a href="{% url 'profile' %}" class="text-dark"> Main Dashboard</a>
+        <span class="text-dark px-2"> | </span>
+        <a href="{% url 'siloam-dashboard' %}" class="text-dark">Service Dashbord</a>
+        <span class="text-dark px-2"> | </span>
+        <a href="#" class="text-dark border-bottom" style="border-color: black;">Scanner</a>
+    </p>
     <h1 class="text-center">Transport</h1>
-    <h2 class="text-center">Siloam 2023 Card Verification</h2>
+    <h2 class="text-center">Service Card Verification</h2>
     <div class="p-3">
         <div id="reader"></div>
         <div id="result"></div>
