@@ -80,18 +80,41 @@
         <div>
             <h1>Attendance For {{list.title|title }} on {{list.created_date}}</h1>
         </div>
+        <button class="btn btn-warning" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        <script src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+        <script>
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('tbl_exporttable_to_xls');
+                var wb = XLSX.utils.table_to_book(elt, {
+                    sheet: "sheet1"
+                });
+                return dl ?
+                    XLSX.write(wb, {
+                        bookType: type,
+                        bookSST: true,
+                        type: 'base64'
+                    }) :
+                    XLSX.writeFile(wb, fn || ('attendance for {{list.title}} {{list.created_date}}.' + (type || 'xlsx')));
+            }
+        </script>
         <div style="background-color: white; border-radius:10px; display: grid;grid-template-columns: 70% 30%;margin-top: 1rem;">
             <input type="search" name="name" id="name_search" placeholder="Search"> {% csrf_token %}
             <button class="filter">Filter</button>
         </div>
     </div>
     <div style="overflow-x: scroll;">
-        <table>
+        <table id="tbl_exporttable_to_xls">
             <thead class="table-head">
                 <tr>
                     <th>S/N</th>
                     <th>Names</th>
                     <th>Arrived/ Departed</th>
+                    <th>Phone</th>
+                    <th>Local Assembly</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Location</th>
+                    <th>State</th>
                     <th>Transportation</th>
                     <th>Feeding</th>
                     <th>Accomodation</th>
@@ -103,6 +126,12 @@
                     <td>{{attendee.id}}</td>
                     <td>{{attendee.attendee.full_name}}</td>
                     <td>{{attendee.time_in.time}} / {{attendee.time_out.time}}</td>
+                    <td>{{attendee.attendee.phone}}</td>
+                    <td>{{attendee.attendee.local_assembly}}</td>
+                    <td>{{attendee.attendee.age}}</td>
+                    <td>{{attendee.attendee.gender}}</td>
+                    <td>{{attendee.attendee.location}}</td>
+                    <td>{{attendee.attendee.state}}</td>
                     <td>{% if attendee.transport %} Yes {% else %} No {% endif %}</td>
                     <td>{% if attendee.food %} Yes {% else %} No {% endif %}</td>
                     <td>{% if attendee.accomodation %} Yes {% else %} No {% endif %}</td>

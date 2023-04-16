@@ -78,7 +78,7 @@
 
     <div class="title">
         <div>
-            <h1>Pastors Attendance For {{list.title|title }} <br><small> {{list.created_date}}</small></h1>
+            <h3>Pastors Attendance For {{list.title|title }} <br><small> {{list.created_date}}</small></h3>
         </div>
 
         <button class="btn btn-warning" onclick="ExportToExcel('xlsx')">Export table to excel</button>
@@ -128,8 +128,8 @@
                     <td>{{attendee.pastor.user.last_name}}</td>
                     <td>{{attendee.pastor.user.first_name}}</td>
                     <td>{{attendee.pastor.department}}</td>
-                    <td>{{attendee.pastor.user.phone}}</td>
                     <td>{{attendee.pastor.unit}}</td>
+                    <td>{{attendee.pastor.user.phone}}</td>
                     <td>{{attendee.time_in.time}} / {{attendee.time_out.time}}</td>
                     <td>{% if attendee.transport %} Yes {% else %} No {% endif %}</td>
                     <td>{% if attendee.food %} Yes {% else %} No {% endif %}</td>

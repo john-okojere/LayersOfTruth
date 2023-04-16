@@ -69,7 +69,7 @@
     <span class="text-light px-2"> | </span> 
     <a href="{% url 'siloam-dashboard' %}" class="text-white">Service Dashbord</a>
     <span class="text-light px-2"> | </span> 
-    <a href="{% url '-attendance-list' %}" class="text-white ">Attendance </a>
+    <a href="{% url 'Specials-attendance-list' %}" class="text-white ">Attendance </a>
     <span class="text-light px-2"> | </span> 
     <a href="#" class="text-white border-bottom">List</a>
 </p>
@@ -80,13 +80,30 @@
         <div>
             <h1>Special Attendance For {{list.title|title }} <br><small> {{list.created_date}}</small></h1>
         </div>
+        <button class="btn btn-warning" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        <script src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+        <script>
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('tbl_exporttable_to_xls');
+                var wb = XLSX.utils.table_to_book(elt, {
+                    sheet: "sheet1"
+                });
+                return dl ?
+                    XLSX.write(wb, {
+                        bookType: type,
+                        bookSST: true,
+                        type: 'base64'
+                    }) :
+                    XLSX.writeFile(wb, fn || ('Workers attendance for {{list.title}} {{list.created_date}}.' + (type || 'xlsx')));
+            }
+        </script>
         <div style="background-color: white; border-radius:10px; display: grid;grid-template-columns: 70% 30%;margin-top: 1rem;">
             <input type="search" name="name" id="name_search" placeholder="Search"> {% csrf_token %}
             <button class="filter">Filter</button>
         </div>
     </div>
     <div style="overflow-x: scroll;">
-        <table>
+        <table id="tbl_exporttable_to_xls">
             <thead class="table-head">
                 <tr>
                     <th>S/N</th>
