@@ -123,7 +123,7 @@
             <tbody>
                 {% for attendee in attendance %}
                 <tr>
-                    <td>{{attendee.id}}</td>
+                    <td>{{forloop.counter}}</td>
                     <td>{{attendee.attendee.full_name}}</td>
                     <td>{{attendee.time_in.time}} / {{attendee.time_out.time}}</td>
                     <td>{{attendee.attendee.phone}}</td>
