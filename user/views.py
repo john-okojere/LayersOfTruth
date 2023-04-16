@@ -43,9 +43,10 @@ def search_memberlist(request, name):
     data = []
    
     for person in members:
-        if person.pastor:
-            p = 't'
-        else:
+        try: 
+            if person.pastor:
+                p = 't'
+        except:
             p = 'f'
         data.append({
             'id':person.id,
