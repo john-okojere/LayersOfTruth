@@ -4,6 +4,13 @@ from import_export.admin import ImportExportMixin
 
 
 
+class CreateAttendances(ImportExportMixin, admin.ModelAdmin):
+    list_display = ('title','created_date')
+    list_filter = ('title','created_date')
+    search_fields = ('title','created_date')
+admin.site.register(CreateAttendance, CreateAttendances)
+
+
 class sAdmin(ImportExportMixin, admin.ModelAdmin):
     list_display = ('seat_number','uid','full_name','phone','local_assembly','age','gender','state','accomodation','location','created',)
     list_filter = ('seat_number','uid','full_name','phone','local_assembly','age','gender','state','accomodation','location','created')
