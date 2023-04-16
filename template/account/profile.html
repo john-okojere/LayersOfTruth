@@ -161,7 +161,7 @@
                     </div>
                 </a>
             </div>
-            {% endif %} {% if request.user.role != "USER" %}
+            {% endif %} {% if request.user.role != "USER" %} {% if request.user.worker %}
             <div class="menus">
                 <a href="{% url 'task_list' request.user.worker.department.id %}">
                     <div>
@@ -175,7 +175,7 @@
                     </div>
                 </a>
             </div>
-            {% endif %} {% if request.user.worker %}
+            {% endif %} {% endif %} {% if request.user.worker %}
             <div class="menus text-center">
                 {% if request.user.pastor %}
                 <img src="{{request.user.pastor.qr_code}}" style="width: 100%;" alt=""><br>Pastor {% else %}
