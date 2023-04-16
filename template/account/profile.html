@@ -165,8 +165,10 @@
                 </a>
             </div>
             {% endif %}
-            <div class="menus">
-                <img src="{{request.user.worker.qr_code}}" style="width: 100%;" alt="">
+            <div class="menus text-center">
+                {% if request.user.pastor %}
+                <img src="{{request.user.pastor.qr_code}}" style="width: 100%;" alt=""><br>Pastor {% else %}
+                <img src="{{request.user.worker.qr_code}}" style="width: 100%;" alt=""><br>Worker {% endif %}
             </div>
         </div>
     </div>
@@ -188,6 +190,7 @@
             <ul class="list-group p-3">
                 {% if request.user.worker %}
                 <li class="list-group my-2 text-dark">
+
                     Department: {{request.user.worker.department}}
                 </li>
                 <li class="list-group my-2 text-dark">
