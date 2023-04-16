@@ -101,8 +101,8 @@
             <tbody>
                 {% for attendee in members %}
                 <tr class="brethren-{{attendee.id}}">
-                    <td>{{attendee.id}}</td>
-                    <td>{{attendee.username}}</td>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{forloop.counterername}}</td>
                     <td>{{attendee.first_name}}</td>
                     <td>{{attendee.last_name}}</td>
                     <td>{{attendee.role}}</td>
