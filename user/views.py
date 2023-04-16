@@ -87,9 +87,12 @@ def signup(request):
 from department.models import Task, Worker
 @login_required
 def profile(request):
-    worker = Worker.objects.get(user=request.user)
-    task = Task.objects.filter(worker = worker )
-    return render(request, 'account/profile.html', {'task':task})
+    try:
+        worker = Worker.objects.get(user=request.user)
+        task = Task.objects.filter(worker = worker )
+        return render(request, 'account/profile.html', {'task':task})
+    except:
+        return render(request, 'account/profile.html')
 
 
 def createsoul(request):
