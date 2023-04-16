@@ -179,19 +179,24 @@
                         for (let i = 0; i < attendance.length; i++) {
                             const attendee = attendance[i]
                             console.log(attendee)
+                            var a = ''
+                            if (attendee.pastor == 't') {
+                                var a = 'disabled'
+                            }
                             $('tbody').append(`
                             <tr>
                                 <td>${attendee.id}</td>
                                 <td>${attendee.username}</td>
                                 <td>${attendee.first_name}</td>
                                 <td>${attendee.last_name}</td>
+                                <td>${attendee.role}</td>
                                 <td>${attendee.phone}</td>
-                                <td>${ attendee.email }</td>
-                                <td>${ attendee.gender }</td>
-                                <td>${ attendee.role }</td>
-                                <td>${ attendee.date_joined }</td>
-                            </tr>
-                            `);
+                                <td>${attendee.email}</td>
+                                <td>${attendee.gender}</td>
+                                <td>${attendee.date_joined}</td>
+                                <td><a href="#" id="makepastor-${attendee.id}" class="btn btn-warning ${a}"> Make Pastor </a></td> 
+                            <tr>
+                                                        `);
                         }
                     } else {
                         $('tbody').append("<div class='m-3'>Empty</div>")

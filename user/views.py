@@ -41,7 +41,12 @@ def search_memberlist(request, name):
     else:
         members = User.objects.all()
     data = []
+   
     for person in members:
+        if person.pastor:
+            p = 't'
+        else:
+            p = 'f'
         data.append({
             'id':person.id,
             'username':person.username,
@@ -52,6 +57,7 @@ def search_memberlist(request, name):
             'gender':person.gender,
             'role':person.role,
             'date_joined':person.date_joined,
+            'pastor':p
         })
     return JsonResponse(data,safe=False, status=200)
     
