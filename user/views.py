@@ -84,10 +84,12 @@ def signup(request):
         form = RegisterForm()
     return render(request, 'account/create.html', {'form': form})
 
-
+from department.models import Task, Worker
 @login_required
 def profile(request):
-    return render(request, 'account/profile.html')
+    worker = Worker.objects.get(user=request.user)
+    task = Task.objects.filter(worker = worker )
+    return render(request, 'account/profile.html', {'task':task})
 
 
 def createsoul(request):

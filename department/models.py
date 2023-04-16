@@ -49,6 +49,7 @@ class Task(models.Model):
     worker = models.ForeignKey(Worker, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
+    done = models.BooleanField( default = False)
     timefrom = models.CharField(max_length=255)
     timeto = models.CharField(max_length=255)
 

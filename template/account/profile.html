@@ -82,7 +82,7 @@
                     </div>
                 </a>
             </div>
-            {% endif %} {% if request.user.role != "USER" %}
+            {% endif %} {% if request.user.role == "ADMIN" or request.user.role == "HOD" %}
             <div class="menus">
                 <a href="{% url 'siloam-dashboard' %}">
                     <div>
@@ -112,19 +112,16 @@
                     </p>
                 </div>
             </div>
-            {% endif %} {% if request.user.role != "USER" %}
+            {% endif %} {% if request.user.role == "ADMIN" or request.user.role == "HOD" or request.user.role == "HOU" %}
             <div class="menus">
                 <a href="{% url 'department-dashboard' %}">
                     <div>
                         <i class="fa fa-archive" aria-hidden="true"></i>
                         <h3>Department</h3>
                     </div>
-
-
                     <div>
                         <p>
                             <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-
                         </p>
                     </div>
                 </a>
@@ -164,7 +161,21 @@
                     </div>
                 </a>
             </div>
-            {% endif %} {% if request.worker %}
+            {% endif %} {% if request.user.role != "USER" %}
+            <div class="menus">
+                <a href="{% url 'task_list' request.user.worker.department.id %}">
+                    <div>
+                        <i class="fa fa-archive" aria-hidden="true"></i>
+                        <h3>Task({{task.all.count}})</h3>
+                    </div>
+                    <div>
+                        <p>
+                            <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            {% endif %} {% if request.user.worker %}
             <div class="menus text-center">
                 {% if request.user.pastor %}
                 <img src="{{request.user.pastor.qr_code}}" style="width: 100%;" alt=""><br>Pastor {% else %}
