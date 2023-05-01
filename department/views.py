@@ -3,7 +3,7 @@ from .models import Department, Unit, Worker, Task, Pastor
 from user.models import User
 from django.http import HttpResponse, JsonResponse
 from django.db.models import Q
-from .forms import AcademicForm
+from .forms import AcademicForm, ProfilePicForm
 from django.contrib import messages
 
 def departmentDashboard(request):
@@ -243,3 +243,30 @@ def fillAcademy(request):
     else:
         form = AcademicForm()
     return render(request, 'department/formaca.html', {'form':form})
+
+from .models import ProfilePicture
+def uploadpircture(request):
+    user = ProfilePicture.objects.filter(user = request.user)
+    if user:
+        pic = ProfilePicture.objects.get(user = request.user)
+        if request.method =="POST":
+            form = ProfilePicForm(request.POST or None, request.FILES or None, instance=pic)
+            if form.is_valid():
+                f = form.save(commit=False)
+                f.user = request.user
+                form.save()
+                return redirect('profile')
+        else:
+            form = ProfilePicForm()
+    else:
+        if request.method == "POST":
+            form = ProfilePicForm(request.POST or None, request.FILES or None)
+            if form.is_valid():
+                f = form.save(commit=False)
+                f.user = request.user
+                form.save()
+                return redirect('profile')
+        else:
+            form = ProfilePicForm()
+    return render(request, 'department/profilepicform.html', {'form':form})
+

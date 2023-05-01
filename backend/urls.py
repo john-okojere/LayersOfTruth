@@ -27,7 +27,7 @@ urlpatterns = [
     path('',homepage ,name="homepage"),
     path('api/', include('rest_framework.urls')),
     path('account/', include('user.urls')),
-    path('siloam2023/', include('siloam.urls')),
+    path('service/', include('siloam.urls')),
     path('verify/', include('scanbarcode.urls')),
     path('department/', include('department.urls')),
 

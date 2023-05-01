@@ -2,6 +2,7 @@ from django.db import models
 from user.models import User
 from qrcode import *
 import uuid
+from PIL import Image
 
 
 class Department(models.Model):
@@ -43,6 +44,23 @@ class Worker(models.Model):
     def __str__(self) -> str:
         return f'{self.user.last_name} {self.user.first_name} Worker at {self.department} - {self.unit} unit'
     
+class ProfilePicture(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="profilepic")
+    image = models.ImageField(upload_to="profile_pic/%y/%m/%d/")
+    created_date = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return "{0}".format(self.image)
+
+    def save(self):         
+        super(ProfilePicture, self).save()
+        image = Image.open(self.image.path)
+        (width, height) = image.size     
+        size = (100, 100)
+        image = image.resize(size)
+        image.save(self.image.path)
+
+
 
 class Task(models.Model):
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)

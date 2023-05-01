@@ -1,7 +1,7 @@
 from import_export.admin import ImportExportModelAdmin
 from import_export.admin import ImportExportMixin
 from django.contrib import admin
-from .models import Department, Worker, Unit, Task, Pastor, Academics
+from .models import Department, Worker, Unit, Task, Pastor, Academics,ProfilePicture
 
 
 class DepartmentAdmin(ImportExportMixin, admin.ModelAdmin):
@@ -39,3 +39,9 @@ class PastorAdmin(ImportExportMixin, admin.ModelAdmin):
     list_filter = ('user', 'uid', 'created_date')
     search_fields = ('user', 'uid', 'created_date')
 admin.site.register(Pastor, PastorAdmin)
+
+class Propic(ImportExportMixin, admin.ModelAdmin):
+    list_display = ('user','created_date')
+    list_filter = ('user','created_date')
+    search_fields = ('user','created_date')
+admin.site.register(ProfilePicture, Propic)

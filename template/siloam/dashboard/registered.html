@@ -165,7 +165,7 @@
         console.log(name.value)
         name.addEventListener("input", () => {
             $.ajax({
-                url: `/siloam2023/search-register/${name.value}`,
+                url: `/service/search-register/${name.value}`,
                 method: 'POST',
                 data: {
                     name: name.value,

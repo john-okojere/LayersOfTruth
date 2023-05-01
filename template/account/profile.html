@@ -201,6 +201,7 @@
             </div>
             <ul class="list-group p-3">
                 {% if request.user.worker %}
+
                 <li class="list-group my-2 text-dark">
 
                     Department: {{request.user.worker.department}}
@@ -209,10 +210,16 @@
                     Unit: {{request.user.worker.unit}}
 
                 </li>
-                {% if request.user.worker.approved == True %} {% else %}
+                {% if request.user.worker %}
+                <li class="list-group my-2 text-dark">
+                    <img src="{{request.user.profilepic.image.url}}" alt="">
+                    <a href="{% url 'uploadpircture' %}" class="btn btn-outline-primary">Upload Profile Picture</a>
+                </li>
+                {% endif %} {% if request.user.worker.approved == True %} {% else %}
                 <li class="list-group my-2 text-dark">
                     <a href="#" class="btn btn-outline-warning">Request to join a Department is processing</a>
                 </li>
+
                 {% endif %} {% else %}
 
                 <li class="list-group my-2 text-dark">
