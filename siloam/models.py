@@ -5,6 +5,7 @@ import time
 from pathlib import Path
 from department.models import Worker, Pastor
 import uuid
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -93,7 +94,10 @@ class Attendance(models.Model):
 
     def __str__(self) -> str:
         return f'{self.attendee.full_name.title()} seat number {self.attendee.seat_number}.'
-
+    
+    def save(self, *args, **kwargs):
+        self.created += timedelta(hours=1)
+        return super().save(*args, **kwargs)
 
 class WorkerAttendance(models.Model):
     attendance = models.ForeignKey(CreateAttendance, on_delete=models.CASCADE)
@@ -107,6 +111,9 @@ class WorkerAttendance(models.Model):
     def __str__(self) -> str:
         return f'{self.worker.user.username.title()} number {self.worker.id}.'
 
+    def save(self, *args, **kwargs):
+        self.created += timedelta(hours=1)
+        return super().save(*args, **kwargs)
 
 class SpecialAttendance(models.Model):
     attendance = models.ForeignKey(CreateAttendance, on_delete=models.CASCADE)
@@ -120,6 +127,9 @@ class SpecialAttendance(models.Model):
     def __str__(self) -> str:
         return f'{self.person.name.title()} number {self.person.id}.'
 
+    def save(self, *args, **kwargs):
+        self.created += timedelta(hours=1)
+        return super().save(*args, **kwargs)
 
 class PastorAttendance(models.Model):
     attendance = models.ForeignKey(CreateAttendance, on_delete=models.CASCADE)
@@ -133,6 +143,9 @@ class PastorAttendance(models.Model):
     def __str__(self) -> str:
         return f'{self.pastor.user.username.title()} number {self.pastor.id}.'
 
+    def save(self, *args, **kwargs):
+        self.created += timedelta(hours=1)
+        return super().save(*args, **kwargs)
 
 class Contact(models.Model):
     email = models.EmailField()
