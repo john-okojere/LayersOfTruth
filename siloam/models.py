@@ -2,10 +2,7 @@ from django.db import models
 from django.conf import settings
 from qrcode import *
 import time
-<<<<<<< HEAD
 from django.utils import timezone
-=======
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
 from pathlib import Path
 from department.models import Worker, Pastor
 import uuid
@@ -93,22 +90,14 @@ class Attendance(models.Model):
     accomodation = models.BooleanField(default=False)
     food = models.BooleanField(default=False)
     transport = models.BooleanField(default=False)
-<<<<<<< HEAD
     time_in = models.DateTimeField(default= timezone.now)
-=======
-    time_in = models.DateTimeField(auto_now=True)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
     time_out = models.DateTimeField(null=True)
 
     def __str__(self) -> str:
         return f'{self.attendee.full_name.title()} seat number {self.attendee.seat_number}.'
     
     def save(self, *args, **kwargs):
-<<<<<<< HEAD
         self.time_in += timedelta(hours=1)
-=======
-        self.created += timedelta(hours=1)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
         return super().save(*args, **kwargs)
 
 class WorkerAttendance(models.Model):
@@ -117,22 +106,14 @@ class WorkerAttendance(models.Model):
     accomodation = models.BooleanField(default=False)
     food = models.BooleanField(default=False)
     transport = models.BooleanField(default=False)
-<<<<<<< HEAD
     time_in = models.DateTimeField(default= timezone.now)
-=======
-    time_in = models.DateTimeField(auto_now=True)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
     time_out = models.DateTimeField(null=True)
 
     def __str__(self) -> str:
         return f'{self.worker.user.username.title()} number {self.worker.id}.'
 
     def save(self, *args, **kwargs):
-<<<<<<< HEAD
         self.time_in += timedelta(hours=1)
-=======
-        self.created += timedelta(hours=1)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
         return super().save(*args, **kwargs)
 
 class SpecialAttendance(models.Model):
@@ -141,22 +122,14 @@ class SpecialAttendance(models.Model):
     accomodation = models.BooleanField(default=False)
     food = models.BooleanField(default=False)
     transport = models.BooleanField(default=False)
-<<<<<<< HEAD
     time_in = models.DateTimeField(default= timezone.now)
-=======
-    time_in = models.DateTimeField(auto_now=True)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
     time_out = models.DateTimeField(null=True)
 
     def __str__(self) -> str:
         return f'{self.person.name.title()} number {self.person.id}.'
 
     def save(self, *args, **kwargs):
-<<<<<<< HEAD
         self.time_in += timedelta(hours=1)
-=======
-        self.created += timedelta(hours=1)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
         return super().save(*args, **kwargs)
 
 class PastorAttendance(models.Model):
@@ -165,22 +138,14 @@ class PastorAttendance(models.Model):
     accomodation = models.BooleanField(default=False)
     food = models.BooleanField(default=False)
     transport = models.BooleanField(default=False)
-<<<<<<< HEAD
     time_in = models.DateTimeField(default= timezone.now)
-=======
-    time_in = models.DateTimeField(auto_now=True)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
     time_out = models.DateTimeField(null=True)
 
     def __str__(self) -> str:
         return f'{self.pastor.user.username.title()} number {self.pastor.id}.'
 
     def save(self, *args, **kwargs):
-<<<<<<< HEAD
         self.time_in += timedelta(hours=1)
-=======
-        self.created += timedelta(hours=1)
->>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
         return super().save(*args, **kwargs)
 
 class Contact(models.Model):
