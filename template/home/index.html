@@ -20,11 +20,15 @@
                     <div class="main_logo" style="background: url( {% static 'assets/white logo.png' %}); "></div>
                     <div class="nav_items">
                         <ul class="menu_list">
-                            <li> <a href="#home" class="menu_link">HOME</a></li>
+                            <li> <a href="/" class="menu_link">HOME</a></li>
                             <li> <a href="#media" class="menu_link">MEDIA & RESOURCES</a> </li>
-                            <li> <a href="#kiddies" class="menu_link">KIDDES</a></li>
+                            <li> <a href="https://lotkids.layersoftruth.org" class="menu_link">KIDDES</a></li>
                             <li> <a href="#ministry" class="menu_link">MINISTRIES</a></li>
-                            <li> <a href="#login" class="menu_link btn">LOGIN</a></li>
+                            {% if user.is_authenticated %}
+                            <li> <a href="{% url 'profile' %}" class="menu_link btn">PROFILE</a></li>
+                            {% else %}
+                            <li> <a href="{% url 'login' %}" class="menu_link btn">LOGIN</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </nav>
