@@ -133,6 +133,7 @@ def AttendancDetailList(request, pk):
     return render(request, 'siloam/dashboard/attendace.html', {'list':lists,'attendance':attendance})
 
 
+<<<<<<< HEAD
 
 @login_required
 def PastorAttendanceList(request):
@@ -141,6 +142,8 @@ def PastorAttendanceList(request):
 
 
 
+=======
+>>>>>>> 92ded6e1aff53a651ee9427f2517f56ac67c9527
 @login_required
 def PastorAttendanceList(request):
     attendance = CreateAttendance.objects.all().order_by('-created_date')
