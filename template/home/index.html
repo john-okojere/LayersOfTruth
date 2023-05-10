@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layers Of Truth Homepage | Unveiling Christ, Communicating Eternal Life</title>
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'home/assets/imgs/LOT 3D GOLD.png'%}" />
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 3rem 5rem;
+            font-family: 'Poppins';
+        }
+        
+        nav .nav-item {
+            width: 60%;
+        }
+        
+        nav .nav-item ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .btn {
+            background: #986F32;
+            border-radius: 3px;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+        }
+        
+        .header {
+            background: url('{% static "" %}');
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <div class="logo"><img src="{% static 'home/assets/imgs/LOT LOGO LQYER.png' %}" alt=""></div>
+            <div class="nav-item">
+                <ul>
+                    <li>Home</li>
+                    <li>Meeda & Resources</li>
+                    <li>Ministres</li>
+                    <li>Home</li>
+                    <li>Login</li>
+                    <li>
+                        <a href="#" class="btn">Give Online</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+
+</html>

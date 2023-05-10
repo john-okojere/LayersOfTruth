@@ -1,0 +1,97 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+
+<style>
+    body {
+        min-height: 100vh;
+    }
+    
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #reader {
+        width: 100%;
+    }
+    
+    #result {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    
+    nav {
+        padding: initial;
+    }
+    
+    .reg {
+        border: none;
+        border-radius: 6px;
+        color: white;
+        background-color: #e66b00;
+        height: 100%;
+        padding: 1rem;
+    }
+    
+    a {
+        color: white !important;
+    }
+    
+    main {
+        min-height: 60vh;
+    }
+</style>
+<div class="mt-5">
+    <p class="container mt-3">
+        <a href="{% url 'siloam-dashboard' %}"><i class="fa fa-long-arrow-left text-dark px-3" aria-hidden="true"></i></a>
+        <a href="{% url 'profile' %}" class="text-dark"> Main Dashboard</a>
+        <span class="text-dark px-2"> | </span>
+        <a href="{% url 'siloam-dashboard' %}" class="text-dark">Service Dashbord</a>
+        <span class="text-dark px-2"> | </span>
+        <a href="#" class="text-dark border-bottom" style="border-color: black;">Scanner</a>
+    </p>
+    <h1 class="text-center">Transport</h1>
+    <h2 class="text-center">Service Card Verification</h2>
+    <div class="p-3">
+        <div id="reader"></div>
+        <div id="result"></div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.slim.js" integrity="sha512-G1QAKkF7DrLYdKiz55LTK3Tlo8Vet2JnjQHuJh+LnU0zimJkMZ7yKZ/+lQ/0m94NC1EisSVS1b35jugu3wLdQg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+<script>
+    const scanner = new Html5QrcodeScanner('reader', {
+        qrbox: {
+            width: 250,
+            height: 250,
+        },
+        fps: 20,
+    })
+    scanner.render(success, error);
+
+    async function success(result) {
+        console.log(result);
+
+
+        fetch('/verify/transport-card/{{attendance.id}}/' + result).then(response => response.json()).then((data) => {
+
+            document.getElementById('result').innerHTML = ` 
+                <h2> Success! </h2> 
+                <br>
+                <p style="margin-top:10px;padding:20px;background:gray;font-weight:bold;border-radius:10px">${data.attendance}</p>
+                <br>
+                <div style="margin-top:10px">
+                <a href="#" onclick="window.location.reload()" class="reg">Reload</a>
+                </div>
+                    `;
+            scanner.clear();
+        })
+
+
+    }
+
+    function error(err) {
+        console.log(err);
+    }
+</script>
+{% endblock main %}

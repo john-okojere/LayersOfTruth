@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load static %}{% load crispy_forms_tags %} {% block main %}
+<link rel="stylesheet" href="{% static 'user/form.css' %}">
+<style>
+    nav {
+        padding-top: 2rem;
+        padding-bottom: 0;
+    }
+    
+    body {
+        background-color: black;
+        color: white;
+    }
+    
+    .alert {
+        max-width: 500px;
+    }
+</style>
+<div class="formContainer">
+    <div class="SignUpContainer">
+        <div class="formMenu">
+            <a href="{% url 'register' %}" class="btnCreateAccount">Sign Up</a>
+
+            <a href="{% url 'login' %}" class="btnLOgIN active">Sign In</a>
+            <div>
+            </div>
+
+
+        </div>
+        {% if form.errors %} {% for errors in form.errors %}
+        <div class="mt-3 alert alert-danger">{{errors}}</div> {% endfor %} {% endif %} {% if messages %} {% for message in messages %}
+        <div class="mt-3 alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %} {% endif %}
+
+        <form method="post" action="{% url 'login' %}" class="LogInContaine">
+            <div class="textForm">
+                <h2> Log into Account</h2>
+            </div>
+
+            {% csrf_token %} {{form|crispy}}
+            <div class="btn-LogInAccount"><button type="submit" class="btnLOgIN2 active"> LogIn</button></div>
+        </form>
+        <p class="text-center mt-2">
+            <a href="{% url 'password-reset' %}">Forgot Password?</a>
+        </p>
+    </div>
+
+
+</div>
+
+{% endblock main %}

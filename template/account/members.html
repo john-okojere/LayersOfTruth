@@ -1,0 +1,233 @@
+{% extends "base.html" %} {% load static %} {% block main %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    table {
+        overflow-x: scroll;
+        min-width: 100%;
+        width: max-content;
+    }
+    
+    td,
+    th {
+        padding: 0.5rem !important;
+    }
+    
+    main.list.container {
+        margin: 1.5rem auto !important;
+    }
+    
+    footer {
+        color: white;
+    }
+    
+    .filter {
+        height: 40px;
+        border: none;
+        padding: 0 1rem;
+        background: goldenrod;
+        color: white;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    
+    select,
+    input {
+        height: 40px;
+        margin: 0;
+        padding: 0 1rem;
+        border: none;
+    }
+    
+    input[type="checkbox" i]:disabled {
+        background-color: blue;
+        color: brown;
+    }
+    
+    @media screen and (max-width:860px) {
+        div.title {
+            display: block;
+        }
+    }
+    
+    .active a {
+        background-color: goldenrod !important;
+        border: 1px solid goldenrod !important;
+    }
+    
+    tbody {
+        min-height: 10vh;
+    }
+</style>
+<p class="container mt-3">
+    <a href="{% url 'profile' %}"><i class="fa fa-long-arrow-left text-light px-3" aria-hidden="true"></i></a>
+    <a href="{% url 'profile' %}" class="text-light"> Main Dashboard</a>
+    <span class="text-light px-2"> | </span>
+    <a href="#" class="text-light border-bottom"> List</a>
+</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<main class="list container">
+    <link rel="stylesheet" href="{% static 'siloam/dashboard/attendance.css' %}">
+
+    <div class="title">
+        <div>
+            <h1>Registered Members Of layers of Truth</h1>
+        </div>
+        <button class="btn btn-warning" onclick="ExportToExcel('xlsx')">Export table to excel</button>
+        <script src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+        <script>
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('tbl_exporttable_to_xls');
+                var wb = XLSX.utils.table_to_book(elt, {
+                    sheet: "sheet1"
+                });
+                return dl ?
+                    XLSX.write(wb, {
+                        bookType: type,
+                        bookSST: true,
+                        type: 'base64'
+                    }) :
+                    XLSX.writeFile(wb, fn || ('Registered Members Of layers of Truth.' + (type || 'xlsx')));
+            }
+        </script>
+        <div style="background-color: white; border-radius:10px; display: grid;grid-template-columns: 70% 30%;margin-top: 1rem;">
+            <input type="search" name="name" id="name_search" placeholder="Search"> {% csrf_token %}
+            <button class="filter">Filter</button>
+        </div>
+    </div>
+    <div style="overflow-x: scroll;">
+        <table id="tbl_exporttable_to_xls">
+            <thead class="table-head">
+                <tr>
+                    <th>S/N</th>
+                    <th>Username</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Role</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Role</th>
+                    <th>Date Joined</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for attendee in members %}
+                <tr class="brethren-{{attendee.id}}">
+                    <td>{{forloop.counter}}</td>
+                    <td>{{forloop.counterername}}</td>
+                    <td>{{attendee.first_name}}</td>
+                    <td>{{attendee.last_name}}</td>
+                    <td>{{attendee.role}}</td>
+                    <td>{{attendee.phone}}</td>
+                    <td>{{ attendee.email }}</td>
+                    <td>{{ attendee.gender }}</td>
+                    <td>{{ attendee.role }}</td>
+                    <td>{{ attendee.date_joined }}</td>
+                    <td>
+                        {% if attendee.pastor %}
+
+                        <a href="#" id="makepastor-{{attendee.id}}" class="btn btn-warning disabled">Make Pastor</a> {% else %}
+                        <a href="#" id="makepastor-{{attendee.id}}" class="btn btn-warning">Make Pastor</a>{% endif %}
+                    </td>
+                </tr>
+
+                <script>
+                    $("#makepastor-{{attendee.id}}").click(function(e) {
+                        e.preventDefault();
+                        $.ajax({
+                            type: "GET",
+                            url: "{% url 'addPastors' attendee.id %}",
+                            success: function(response) {
+                                $('#makepastor-{{attendee.id}}').addClass('disabled');;
+                                $('#makepastor-{{attendee.id}}').addClass('disabled');;
+                            }
+                        });
+                    });
+                </script> {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% if attendance.has_other_pages %}
+    <!-- Pagination -->
+    <div class="row mt-3 text-center">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <ul class="pagination p-center text-black" style="place-content:center">
+                {% if attendance.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{attendance.previous_page_number}}" aria-label="Previous">
+                        <span class="">Previous</span>
+                    </a>
+                </li>
+                {% endif %} {% for i in attendance.paginator.page_range %} {% if attendance.number == i %}
+                <li class="page-item active text-white"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                {% endif %} {% endfor %} {% if attendance.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{attendance.next_page_number}}" aria-label="Next">
+                        <span class="">Next</span>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    <script>
+        const name = document.getElementById("name_search");
+        console.log(name.value)
+        name.addEventListener("input", () => {
+            $.ajax({
+                url: `/account/search/${name.value}`,
+                method: 'POST',
+                data: {
+                    name: name.value,
+                    csrfmiddlewaretoken: $('[name="csrfmiddlewaretoken"]').val()
+                },
+                success: function(data) {
+                    $('tbody').empty()
+                    if (data.error === undefined) {
+                        const attendance = data
+                        for (let i = 0; i < attendance.length; i++) {
+                            const attendee = attendance[i]
+                            console.log(attendee)
+                            var a = ''
+                            if (attendee.pastor == 't') {
+                                var a = 'disabled'
+                            }
+                            $('tbody').append(`
+                            <tr>
+                                <td>${attendee.id}</td>
+                                <td>${attendee.username}</td>
+                                <td>${attendee.first_name}</td>
+                                <td>${attendee.last_name}</td>
+                                <td>${attendee.role}</td>
+                                <td>${attendee.phone}</td>
+                                <td>${attendee.email}</td>
+                                <td>${attendee.gender}</td>
+                                <td>${attendee.date_joined}</td>
+                                <td><a href="#" id="makepastor-${attendee.id}" class="btn btn-warning ${a}"> Make Pastor </a></td> 
+                            <tr>
+                                                        `);
+                        }
+                    } else {
+                        $('tbody').append("<div class='m-3'>Empty</div>")
+
+                    }
+
+                },
+                error: function(data) {
+                    $('tbody').empty()
+                    $('tbody').append("<div class='m-3'>Failed</div>")
+
+                }
+            })
+        })
+    </script>
+</main>
+{% endblock main %}
