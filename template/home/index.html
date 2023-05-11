@@ -9,6 +9,10 @@
     <title>layers of Truth | Unvieling christ, Communicating Eternal Life</title>
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+
 
 </head>
 
@@ -19,17 +23,25 @@
                 <nav class="container">
                     <div class="main_logo" style="background: url( {% static 'assets/white logo.png' %}); "></div>
                     <div class="nav_items">
-                        <ul class="menu_list">
-                            <li> <a href="/" class="menu_link">HOME</a></li>
-                            <li> <a href="#media" class="menu_link">MEDIA & RESOURCES</a> </li>
-                            <li> <a href="https://lotkids.layersoftruth.org" class="menu_link">KIDDES</a></li>
-                            <li> <a href="#ministry" class="menu_link">MINISTRIES</a></li>
-                            {% if user.is_authenticated %}
-                            <li> <a href="{% url 'profile' %}" class="menu_link btn">PROFILE</a></li>
-                            {% else %}
-                            <li> <a href="{% url 'login' %}" class="menu_link btn">LOGIN</a></li>
-                            {% endif %}
-                        </ul>
+                        <h1 class="menu_bar">
+                            <a href="#" id="menu_bar"><i class="fa fa-bars" style="color: white;"></i></a>
+                        </h1>
+                        <div class="menu_list" id="menu_list">
+                            <h1 class="menu_bar">
+                                <a href="#" style="margin: 2rem;position: absolute;top: 4px;right: 5px;" id="close_menu_bar"><i class="fa fa-times" style="color: white;"></i></a>
+                            </h1>
+                            <ul>
+                                <li> <a href="/" class="menu_link">HOME</a></li>
+                                <li> <a href="#media" class="menu_link">MEDIA & RESOURCES</a> </li>
+                                <li> <a href="/service/" class="menu_link">Siloam 2023</a></li>
+                                <li> <a href="#ministry" class="menu_link">MINISTRIES</a></li>
+                                {% if user.is_authenticated %}
+                                <li> <a href="{% url 'profile' %}" class="menu_link btn">PROFILE</a></li>
+                                {% else %}
+                                <li> <a href="{% url 'login' %}" class="menu_link btn">LOGIN</a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </header>
@@ -326,4 +338,15 @@
             <!-- <img src=" " alt=" "> -->
         </div>
     </footer>
+    <script>
+        const bar = document.getElementById('menu_bar');
+        const list = document.getElementById('menu_list');
+        const close = document.getElementById('close_menu_bar');
+        bar.addEventListener('click', () => {
+            list.style.display = "block";
+        });
+        close.addEventListener('click', () => {
+            list.style.display = "none";
+        });
+    </script>
 </body>
