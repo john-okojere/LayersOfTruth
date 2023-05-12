@@ -106,10 +106,13 @@ def createsoul(request):
 
 
 def createprayer(request):
-    name = request.POST.get('soulname2')
-    requestp = request.POST.get('soulprayer')
+    first_name = request.POST.get('prayer_first_name')
+    last_name = request.POST.get('prayer_last_name')
+    email = request.POST.get('prayer_email')
+    phone = request.POST.get('prayer_phone')
+    requestp = request.POST.get('prayer_request')
 
-    soul  = Prayers.objects.create(name=name, request=requestp)
+    soul  = Prayers.objects.create(first_name=first_name, last_name=last_name,email=email, phone=phone, request=requestp)
     soul.save()
     messages.success(request, 'Your information has been saved, and we will definitely Pray for you. ')
     return redirect('/')

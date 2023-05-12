@@ -87,7 +87,10 @@ class OnlineSoul(models.Model):
     
 
 class Prayers(models.Model):
-    name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    email = models.EmailField()
+    phone = models.CharField(max_length=255)
     request = models.CharField(max_length=255)
     checked = models.BooleanField(default=True)
     create_date = models.DateTimeField(auto_now=True)

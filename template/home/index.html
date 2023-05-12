@@ -59,8 +59,9 @@
             <div class="rect"></div>
         </h1>
 
-        <p>Where we insist on acting on the truth and showing how God's life <br> manifests itself layer by layer in the gathering of the saints, particularly in <br> the household of faith, in the brethren life, and amidst the brethren <br> <br> <a class="btn"
-                href="connect_live">CONNECT LIVE</a></p>
+        <p>Where men are encouraged to act on the truth and showed how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren <br> <br>
+            <a class="btn" href="https://mixlr.com/layersoftruth">CONNECT LIVE</a>
+        </p>
 
     </section>
     <section class="welcome_text wwb">
@@ -77,14 +78,14 @@
             </div>
 
             <div class="believe_text">
-                <span class="special_heading">THE HEAD</span>
+                <span class="special_heading">THE GOD HEAD</span>
                 <p class="believe_paragraph">
-                    <br> The one true God who has revealed Himself by His Son Jesus Christ the mediator between God and mankind. God became manifest in the flesh for redemption of mankind and righteousness for his Chosen through His Spirit he makes himself
-                    known unto all who seek him. (Deuteronomy 6:4; Isaiah 43:10, 11; Matthew 28:19; Acts).
+                    <br> The one true God who has revealed Himself by His Son Jesus Christ the mediator between God and mankind. God became manifest in the flesh for the redemption of mankind and righteouness for his people.Through his spirit,he makes
+                    himself known unto all who seek him. (Deuteronomy 6:4; Isaiah 43:10, 11; Matthew 28:19; Acts).
             </div>
 
             <div class="believe_text">
-                <span class="special_heading">JESUS-THE SON OF GOD</span>
+                <span class="special_heading">JESUS; THE SON OF GOD</span>
                 <p class="believe_paragraph"> <br> The Lord Jesus Christ is the eternal Son of God. The Scriptures declare His virgin birth (Matthew 1:23; Luke 1:31; Luke 1:35), His sinless life (Hebrews 7:26; 1 Peter 2:22), His miracles (Acts 2:22; Acts 10:38),</p>
             </div>
 
@@ -102,8 +103,8 @@
             <div class=" om sunday_service">
                 <div style="height: 200px;width: 100%;background: url({% static 'assets/communion.png' %});background-position: center;background-size: cover;" alt="communion"></div>
 
-                <p><span class="special_heading">Communion Service</span>
-                    <br> When the communion table is set. Fear <br> disappears
+                <p><span class="special_heading">Sunday Service</span>
+                    <br> it is a time of indepth teaching of God's word,manifestation of the spirit and breaking of bread with the saint,
                     <br>
                     <span class="service_time">Every Sunday 8:00am</span>
                 </p>
@@ -113,20 +114,20 @@
 
             <div class="om rev_hour">
                 <div style="height: 200px;width: 100%;background: url({% static 'assets/rev_hour.png' %});background-position: center;background-size: cover;" alt="communion"></div>
-                <p> <span class="special_heading">Revelation Hour</span>
-                    <br> He discovereth deep things out of darkness, and bringeth <br> out to light the shadow of death.
+                <p> <span class="special_heading">Wednesday Day</span>
+                    <br> a time for the unveiling of jesus christ and communicating eternal life through indepth study of scriptures.
+
                     <br>
-                    <span class="service_time">Every Tuesday 6:00pm</span>
+                    <span class="service_time">Every Wednesday 6:00pm</span>
                 </p>
             </div>
 
             <div class="om VOP">
                 <div style="height: 200px;width: 100%;background: url({% static 'assets/vop.png' %});background-position: center;background-size: cover;" alt="communion"></div>
-                <p> <span class="special_heading">Voice Of Prayer</span>
+                <p> <span class="special_heading">Mid-night Cry</span>
+                    <br> it is a time of excersing oneself in effectual, fervent prayer that makes tremendous power available, dynamic in his working (james5;16)
                     <br>
-
-                    <br>
-                    <span class="service_time">Every Thursday 6:00pm</span>
+                    <span class="service_time">Every Friday 8:00pm</span>
                 </p>
 
             </div>
@@ -167,8 +168,7 @@
             <div class="line2 "></div>
         </div>
 
-        <div class="gallery_text ">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquid at unde corporis, excepturi adipisci iure. Sit, temporibus, nihil non deleniti rem eaque, quae distinctio expedita molestias dolore sequi. Deleniti, veritatis.
+        <div class="gallery_text ">assisting our head steward in administrating and ministring, is a team of faithful steward who labour night and day in word,prayer and caring for the church.
             </p>
         </div>
         <div class="gallery ">
@@ -199,40 +199,45 @@
     <section class="payer_request_form ">
         <div class="title ">
             <div class="line1 "></div>
-            <h1 class="sub_heading ">HOW CAN WE PRAY FOR YOU</h1>
+            <h1 class="sub_heading ">DO YOU NEED PRAYERS?
+            </h1>
             <div class="line2 "></div>
         </div>
-
-        <div class="form ">
+        {% for message in messages %}
+        <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %}
+        <form method="POST" action="{% url 'addprayer' %}" class="form ">
+            {% csrf_token %}
             <div class="form_top ">
                 <div class="row1 ">
                     <label for="first_name ">First name</label>
-                    <input clas type="text " name="first_name " id="Fname ">
+                    <input clas type="text " name="prayer_first_name" id="Fname ">
                 </div>
                 <div class="row1 ">
                     <label for="last_name ">Last name</label>
-                    <input type="text " name="last_name " id="Lname ">
+                    <input type="text " name="prayer_last_name" id="Lname ">
                 </div>
 
                 <div class="row1 ">
                     <label for="email ">Email</label>
-                    <input type="email " name="email " id="email ">
+                    <input type="email " name="prayer_email" id="email ">
                 </div>
                 <div class="row1 ">
                     <label for="phone ">Phone Number</label>
-                    <input type="tel " name="phone " id="phone ">
+                    <input type="tel " name="prayer_phone" id="phone ">
                 </div>
             </div>
             <div class="row1 prayer_request ">
                 <label for="prayer ">Prayer Request</label>
                 <br>
-                <input class="request " type="text ">
+                <input class="request" type="text" name="prayer_request">
+
+            </div>
+            <div style="align-items: center;text-align-last: center;">
+                <button class=" submit ">SUBMIT</button>
 
             </div>
 
-
-            <button class=" submit ">SUBMIT</button>
-        </div>
+        </form>
     </section>
 
     <hr>
@@ -242,7 +247,8 @@
 
         <div class="about_us_footer ">
             <h4>ABOUT US</h4>
-            <p>We insist on acting on the truth and showing how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren.</p>
+            <p>At layers of truth, we are on a journey into God and arecommited to opening the eyes of men, turnnig them from darkness to light and from the power of satan unto God by the the power of the word.
+            </p>
 
         </div>
 

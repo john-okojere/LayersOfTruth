@@ -21,9 +21,9 @@ admin.site.register(Messages, MAdmin)
 
 
 class PAdmin(ImportExportMixin, admin.ModelAdmin):
-    list_display = ('name', 'request', 'checked', 'create_date',)
-    list_filter = ('name', 'request', 'checked', 'create_date',)
-    search_fields = ('name', 'request', 'checked', 'create_date',)
+    list_display = ('first_name','last_name','email','phone' ,'request', 'checked', 'create_date',)
+    list_filter = ('first_name','last_name','email','phone' ,'request', 'checked', 'create_date',)
+    search_fields = ('first_name','last_name','email','phone' ,'request', 'checked', 'create_date',)
 admin.site.register(Prayers, PAdmin)
 
 
