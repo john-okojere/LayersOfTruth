@@ -40,9 +40,6 @@ joblib==1.1.0
 kiwisolver==1.4.4
 MarkupPy==1.14
 matplotlib==3.5.2
-mysql==0.0.3
-mysql-connector-python==8.0.31
-mysqlclient==2.1.1
 networkx==2.8.5
 numpy==1.23.1
 oauthlib==3.2.0
@@ -72,7 +69,6 @@ scipy==1.9.0
 six==1.16.0
 sklearn==0.0
 smart-open==6.0.0
-sqlparse==0.4.3
 tablib==3.4.0
 threadpoolctl==3.1.0
 tifffile==2022.8.3
