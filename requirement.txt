@@ -29,7 +29,6 @@ django-storages==1.12.3
 django-summernote==0.8.20.0
 djangorestframework==3.14.0
 et-xmlfile==1.1.0
-face-recognition-models==0.3.0
 filelock==3.8.0
 fontawesomefree==6.3.0
 fonttools==4.37.4
