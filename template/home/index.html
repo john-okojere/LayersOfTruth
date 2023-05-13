@@ -93,33 +93,35 @@
             <div class="rect"></div>
         </h1>
 
-        <p class="gallery_text">Where men are encouraged to act on the truth and showed how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren
+        <p class="gallery_text" style="max-width: 900px;margin: auto;">Where men are encouraged to act on the truth and showed how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren
             <br> <br>
             <a class="btn" href="https://mixlr.com/layersoftruth">CONNECT LIVE</a>
         </p>
 
     </section>
+
     <section class="welcome_text wwb">
 
         <h1 class="sub_heading">
             <div class="rect"></div> WHAT WE BELIEVE
             <div class="rect"></div>
         </h1>
-        <div class="believe_body">
-            <div class="believe_text">
+        <br>
+        <div class="believe_body gallery_text">
+            <div class="believe_text ">
                 <span class="special_heading">THE CHURCH</span>
                 <p class="believe_paragraph"> <br> The church is the body of Christ, the habitation of God through the Spirit with divine appointments for the fulfillment of the great commission. Each believer, born of the Spirit, is an integral part of the church of the firstborn,
                     which are written in heaven (Ephesians 1:22-23; 2:22; Hebrews 12:33).</p>
             </div>
 
-            <div class="believe_text">
+            <div class="believe_text ">
                 <span class="special_heading">THE GOD HEAD</span>
                 <p class="believe_paragraph">
-                    <br> The one true God who has revealed Himself by His Son Jesus Christ the mediator between God and mankind. God became manifest in the flesh for the redemption of mankind and righteouness for his people.Through his spirit,he makes
-                    himself known unto all who seek him. (Deuteronomy 6:4; Isaiah 43:10, 11; Matthew 28:19; Acts).
+                    <br> The one true God who has revealed Himself by His Son Jesus Christ the mediator between God and mankind. God became manifest in the flesh for the redemption of mankind and righteouness for his people.Through his spirit. (Deuteronomy
+                    6:4; Isaiah 43:10, 11; Matthew 28:19; Acts).
             </div>
 
-            <div class="believe_text">
+            <div class="believe_text ">
                 <span class="special_heading">JESUS; THE SON OF GOD</span>
                 <p class="believe_paragraph"> <br> The Lord Jesus Christ is the eternal Son of God. The Scriptures declare His virgin birth (Matthew 1:23; Luke 1:31; Luke 1:35), His sinless life (Hebrews 7:26; 1 Peter 2:22), His miracles (Acts 2:22; Acts 10:38),</p>
             </div>
@@ -127,14 +129,12 @@
 
     </section>
 
-
-
     <section class="welcome_text our_ministry">
         <h1 class="sub_heading">
             <div class="rect"></div> OUR MINISTRY
             <div class="rect"></div>
         </h1>
-        <div class=" believe_body services">
+        <div class=" believe_body services gallery_text">
             <div class=" om sunday_service">
                 <div style="height: 200px;width: 100%;background: url({% static 'assets/communion.png' %});background-position: center;background-size: cover;" alt="communion"></div>
 
@@ -181,13 +181,13 @@
 
         </div>
 
-        <div class="believe_body kiddies_content">
+        <div class="believe_body kiddies_content gallery_text">
             <img src="{% static 'assets/kiddies.png' %}" alt=" " style="max-width: 400px; ">
 
             <div>
-                <p style="text-align: ; ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit repudiandae fugiat veritatis laboriosam sit obcaecati sunt possimus earum quos ducimus in repellat, dolorum explicabo fugiat quas.</p>
+                <p style="text-align: ; ">Let your child inorder for them to paticipate in eternal life conversation; that they me grow thereby</p>
 
-                <button class="btn ">KIDDIES</button>
+                <a href="https//lotkids.layersoftruth.org" class="btn "> KIDDIES </a>
             </div>
         </div>
 
@@ -206,7 +206,7 @@
         <div class="gallery_text ">assisting our head steward in administrating and ministring, is a team of faithful steward who labour night and day in word,prayer and caring for the church.
             </p>
         </div>
-        <div class="gallery ">
+        <div class="gallery gallery_text ">
             <img src="{% static 'assets/residency.png' %}" alt=" ">
             <img src="{% static 'assets/p2.png' %}" alt=" ">
             <img src="{% static 'assets/p3.png' %}" alt=" ">
@@ -220,28 +220,27 @@
         </div>
     </section>
 
-    <section class="b join_us ">
+    <section class="b join_us gallery_text ">
 
         <h1 class="sub_heading ">YOU CAN START AGAIN</h1>
         <H4>Justified by Faith</H4>
+        <br>
         <p>We were born Christians. As we call people who are not Christians, we were not sinners at birth. But we are aware that abiding by the law does not make one righteous in God's eyes. Trusting in Jesus Christ is what reconciles a person to God. Since
             we want to be reconciled to God, we placed our confidence in Christ Jesus. And it is because of our faith in Christ, not because we kept the law, that we are right with him. I am able to say this because obeying the law cannot make someone
             right with God. It is obvious that we Jews were also sinners since we came to Christ to be reconciled to God. Does this imply that we are sinners because of Christ? Of course not </p>
 
-        <button class="join_btn ">JOIN US</button>
     </section>
 
     <section class="payer_request_form ">
-        <div class="title ">
-            <div class="line1 "></div>
-            <h1 class="sub_heading ">DO YOU NEED PRAYERS?
-            </h1>
-            <div class="line2 "></div>
-        </div>
-        {% for message in messages %}
-        <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %}
         <form method="POST" action="{% url 'addprayer' %}" class="form ">
-            {% csrf_token %}
+            <div class="title ">
+                <div class="line1 "></div>
+                <h1 class="sub_heading ">DO YOU NEED PRAYERS?
+                </h1>
+                <div class="line2 "></div>
+            </div>
+            {% for message in messages %}
+            <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %} {% csrf_token %}
             <div class="form_top ">
                 <div class="row1 ">
                     <label for="first_name ">First name</label>
