@@ -19,12 +19,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from user.views import homepage
+from user.views import homepage, about,media
 
 urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('',homepage ,name="homepage"),
+    path('Media-Resources',media ,name="media"),
+    path('About-Us',about ,name="about"),
     path('api/', include('rest_framework.urls')),
     path('account/', include('user.urls')),
     path('service/', include('siloam.urls')),

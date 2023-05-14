@@ -34,6 +34,12 @@ class RegisterUserAPIView(generics.CreateAPIView):
 def homepage(request):
     return render(request, 'home/index.html')
 
+def about(request):
+    return render(request, 'home/about.html')
+
+def media(request):
+    return render(request, 'home/media.html')
+
 
 def search_memberlist(request, name):
     if name.__len__() > 0:

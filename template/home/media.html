@@ -67,8 +67,8 @@
                                 <a href="#" style="margin: 2rem;position: absolute;top: 4px;right: 5px;" id="close_menu_bar"><i class="fa fa-times" style="color: white;"></i></a>
                             </h1>
                             <ul>
-                                <li> <a href="/" class="menu_link active-nav">HOME</a></li>
-                                <li> <a href="#media" class="menu_link">MEDIA & RESOURCES</a> </li>
+                                <li> <a href="/" class="menu_link ">HOME</a></li>
+                                <li> <a href="#media" class="menu_link active-nav">MEDIA & RESOURCES</a> </li>
                                 <li> <a href="/service/" class="menu_link">SILOAM 2023</a></li>
                                 <li> <a href="{% url 'about' %}" class="menu_link">ABOUT US</a></li>
                                 {% if user.is_authenticated %}
@@ -300,7 +300,7 @@
                 <h4>MAIN MENU</h4>
 
                 <ul>
-                    <li><a href="/">HOME</a></li>
+                    <li><a href="Home ">HOME</a></li>
                     <li><a href="{% url 'about' %}">ABOUT US</a></li>
                     <li>
                         <a href="{% url 'media' %}">MEDIA & RESOURCES</a>
