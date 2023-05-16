@@ -172,112 +172,46 @@
         </div>
 
     </section>
-
-    <section class="welcome_text kiddies">
-        <div class="title">
-
-            <h1 class="sub_heading">
-                <div class="rect"></div>KIDDIES
-                <div class="rect"></div>
-            </h1>
-
+    p' =="POST" action="{% url 'addprayer' %}" class="form ">
+    <div class="title ">
+        <div class="line1 "></div>
+        <h1 class="sub_heading ">DO YOU NEED PRAYERS?
+        </h1>
+        <div class="line2 "></div>
+    </div>
+    {% for message in messages %}
+    <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %} {% csrf_token %}
+    <div class="form_top ">
+        <div class="row1 ">
+            <label for="first_name ">First name</label>
+            <input clas type="text " name="prayer_first_name" id="Fname ">
+        </div>
+        <div class="row1 ">
+            <label for="last_name ">Last name</label>
+            <input type="text " name="prayer_last_name" id="Lname ">
         </div>
 
-        <div class="believe_body kiddies_content gallery_text">
-            <img src="{% static 'assets/kiddies.png' %}" alt=" " style="max-width: 400px; ">
-
-            <div>
-
-                <p style="text-align: ; ">
-                    <strong>ENCOUNTERING JESUS WITH THE NEXT GENERATION</strong> <br> Let your child inorder for them to paticipate in eternal life conversation; that they me grow thereby. <br>For children up to 11 years old.
-
-                </p>
-
-                <a href="https://lotkids.layersoftruth.org" class="btn "> KIDDIES </a>
-            </div>
+        <div class="row1 ">
+            <label for="email ">Email</label>
+            <input type="email " name="prayer_email" id="email ">
         </div>
-
-    </section>
-
-    <section class="welcome_text pastors_gallery ">
-        <div class="title ">
-            <div class="line1 "></div>
-            <h1 class="sub_heading ">
-                <div class="rect "></div> MEET OUR PASTORS
-                <div class="rect "></div>
-            </h1>
-            <div class="line2 "></div>
+        <div class="row1 ">
+            <label for="phone ">Phone Number</label>
+            <input type="tel " name="prayer_phone" id="phone ">
         </div>
-
-        <div class="gallery_text ">Assisting our head steward in administrating and ministring, is a team of faithful steward who labour night and day in word,prayer and caring for the church.
-            </p>
-        </div>
-        <div class="gallery gallery_text ">
-            <img src="{% static 'assets/residency.png' %}" alt=" ">
-            <img src="{% static 'assets/p2.png' %}" alt=" ">
-            <img src="{% static 'assets/p3.png' %}" alt=" ">
-            <img src="{% static 'assets/p4.png' %}" alt=" ">
-            <img src="{% static 'assets/p5.png' %}" alt=" ">
-            <img src="{% static 'assets/p6.png' %}" alt=" ">
-        </div>
-        <div class="gallery_btns ">
-            <a href="https://t.me/+25s9rZswn4A0ZWRk" class="msg ">LISTEN TO MESSAGES</a>
-            <a href="https://youtube.com/@layersoftruth_ng" class="vid ">WATCH OUR VIDEOS</a>
-        </div>
-    </section>
-
-    <section class="b join_us gallery_text " style="padding: rem;">
-
-        <h1 class="sub_heading ">YOU CAN START AGAIN</h1>
-        <H4>Justified by Faith</H4>
+    </div>
+    <div class="row1 prayer_request ">
+        <label for="prayer ">Prayer Request</label>
         <br>
-        <p>We were born Christians. As we call people who are not Christians, we were not sinners at birth. But we are aware that abiding by the law does not make one righteous in God's eyes. Trusting in Jesus Christ is what reconciles a person to God. Since
-            we want to be reconciled to God, we placed our confidence in Christ Jesus. And it is because of our faith in Christ, not because we kept the law, that we are right with him. I am able to say this because obeying the law cannot make someone
-            right with God. It is obvious that we Jews were also sinners since we came to Christ to be reconciled to God. Does this imply that we are sinners because of Christ? Of course not </p>
+        <input class="request" type="text" name="prayer_request">
 
-    </section>
+    </div>
+    <div style="align-items: center;text-align-last: center;">
+        <button class=" submit ">SUBMIT</button>
 
-    <section class="payer_request_form ">
-        <form method="POST" action="{% url 'addprayer' %}" class="form ">
-            <div class="title ">
-                <div class="line1 "></div>
-                <h1 class="sub_heading ">DO YOU NEED PRAYERS?
-                </h1>
-                <div class="line2 "></div>
-            </div>
-            {% for message in messages %}
-            <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %} {% csrf_token %}
-            <div class="form_top ">
-                <div class="row1 ">
-                    <label for="first_name ">First name</label>
-                    <input clas type="text " name="prayer_first_name" id="Fname ">
-                </div>
-                <div class="row1 ">
-                    <label for="last_name ">Last name</label>
-                    <input type="text " name="prayer_last_name" id="Lname ">
-                </div>
+    </div>
 
-                <div class="row1 ">
-                    <label for="email ">Email</label>
-                    <input type="email " name="prayer_email" id="email ">
-                </div>
-                <div class="row1 ">
-                    <label for="phone ">Phone Number</label>
-                    <input type="tel " name="prayer_phone" id="phone ">
-                </div>
-            </div>
-            <div class="row1 prayer_request ">
-                <label for="prayer ">Prayer Request</label>
-                <br>
-                <input class="request" type="text" name="prayer_request">
-
-            </div>
-            <div style="align-items: center;text-align-last: center;">
-                <button class=" submit ">SUBMIT</button>
-
-            </div>
-
-        </form>
+    </form>
     </section>
 
     <hr>
@@ -399,7 +333,72 @@
             list.style.display = "block";
         });
         close.addEventListener('click', () => {
-            list.style.display = "none";
-        });
+                ">
+
+                <
+                /div>
+
+
+                <
+                div class = "socails "
+                style = "display: flex;width: 150px;justify-content: space-between; " >
+                    <
+                    div class = "socials_icon " >
+                    <
+                    a href = "https://web.facebook.com/layersoftruthng/" > < img src = "{% static 'assets/fb.png' %}"
+                alt = " " > < /a> < /
+                    div > <
+                    div class = "socials_icon " >
+                    <
+                    a href = "https://twitter.com/layers_of_truth" > < img src = "{% static 'assets/twit.png' %} "
+                alt = " " > < /a> < /
+                    div >
+
+
+                    <
+                    div class = "socials_icon " >
+                    <
+                    a href = "https://www.instagram.com/layersoftruth_ng" > < img src = "{% static 'assets/teleg.png' %} "
+                alt = "</a> < /
+                    div > list.style.display = "none";
+            }!-- < img src = " "
+            alt = " " > -- >
+            <
+        ); >
+        <
+        /footer> <
+        script
+        const bar = document.getElementById('menu_bar');
+        const list = document.getElementById('menu_list');
     </script>
+    const close = document.getElementById('close_menu_bar'); bar.addEventListener('click', () => { list.style.display = "block"; }); close.addEventListener('click', () => { list.style.display = "none"; });
+    </script>
+</body>
+</body>
+<div class="socails " style="display: flex;width: 150px;justify-content: space-between; ">
+    <div class="socials_icon ">
+        <a href="https://web.facebook.com/layersoftruthng/"><img src="{% static 'assets/fb.png' %}" alt=" "></a>
+    </div>
+    <div class="socials_icon ">
+        <a href="https://twitter.com/layers_of_truth"> <img src="{% static 'assets/twit.png' %} " alt=" "></a>
+    </div>
+
+
+    <div class="socials_icon ">
+        <a href="https://www.instagram.com/layersoftruth_ng"><img src="{% static 'assets/teleg.png' %} " alt=" "></a>
+    </div>
+    <!-- <img src=" " alt=" "> -->
+</div>
+</footer>
+<script>
+    const bar = document.getElementById('menu_bar');
+    const list = document.getElementById('menu_list');
+    const close = document.getElementById('close_menu_bar');
+    bar.addEventListener('click', () => {
+        list.style.display = "block";
+    });
+    close.addEventListener('click', () => {
+        list.style.display = "none";
+    });
+</script>
 </body>
