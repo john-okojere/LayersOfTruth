@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatibible" content="IE=edge">
     <meta name='viewport' content="width=device-width, initial-scale=1.0">
-    <title>layers of Truth | Unvieling christ, Communicating Eternal Life</title>
+    <title>Layers of Truth | Unvieling christ, Communicating Eternal Life</title>
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
@@ -91,25 +91,56 @@
 
     <section class="welcome_text">
         <h1 class="sub_heading">
-            <div class="rect"></div>Welcome To Church
+            <div class="rect"></div><span>Welcome To Church</span>
             <div class="rect"></div>
         </h1>
+        <style>
+            @media screen and (max-width: 760px) {
+                .phone {
+                    display: contents !important;
+                    padding: 20px;
+                    align-items: center;
+                    text-align-last: center;
+                }
+                .phone p {
+                    text-align-last: center;
+                }
+                iframe {
+                    width: 100% !important;
+                }
+                section {
+                    border-top: 1px solid rgba(0, 0, 0, 0.4);
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+                    padding-bottom: 20px !important;
+                }
+                .welcome_text {
+                    margin-top: 0;
+                }
+            }
+        </style>
+        <div class="phone" style="display: grid;grid-template-columns: 49% 49%;grid-gap: 2%;" class="gallery_text">
+            <iframe style="width: 500px; height: 300px;    place-self: center" src="https://www.youtube.com/embed/UORl8GuRRjs?autoplay=1" allow="autoplay"></iframe>
+            <div>
 
-        <p class="gallery_text" style="max-width: 900px;margin: auto;">Where men are encouraged to act on the truth and showed how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren
-            <br> <br>
-            <a class="btn" href="https://mixlr.com/layersoftruth">CONNECT LIVE</a>
-        </p>
+
+                <p class="phone" style="text-align: left;">At layers of truth, men are encouraged to act on the truth and are showed how God's life manifests itself layer by layer in the gathering of the saints, particularly in the household of faith, in the brethren life, and amidst the brethren
+                    <br> <br>
+                    <a class="btn" href="https://mixlr.com/layersoftruth">CONNECT LIVE</a>
+                </p>
+            </div>
+        </div>
+
 
     </section>
 
-    <section class="welcome_text wwb">
+    <section class="welcome_text wwb" style="background-color: black;color: white;padding: 10%;">
 
         <h1 class="sub_heading">
-            <div class="rect"></div> WHAT WE BELIEVE
+            <div class="rect"></div><span> WHAT WE BELIEVE</span>
             <div class="rect"></div>
         </h1>
         <br>
-        <div class="believe_body gallery_text">
+        <div class="believe_body " style="text-align:left">
             <div class="believe_text ">
                 <span class="special_heading">THE CHURCH</span>
                 <p class="believe_paragraph"> <br> The church is the body of Christ, the habitation of God through the Spirit with divine appointments for the fulfillment of the great commission. Each believer, born of the Spirit, is an integral part of the church of the firstborn,
@@ -123,25 +154,19 @@
                     6:4; Isaiah 43:10, 11; Matthew 28:19; Acts).
             </div>
 
-            <div class="believe_text ">
-                <span class="special_heading">JESUS; THE SON OF GOD</span>
-                <p class="believe_paragraph"> <br> The Lord Jesus Christ is the eternal Son of God. The Scriptures declare His virgin birth (Matthew 1:23; Luke 1:31; Luke 1:35), His sinless life (Hebrews 7:26; 1 Peter 2:22), His miracles (Acts 2:22; Acts 10:38),</p>
-            </div>
-
-
     </section>
 
     <section class="welcome_text our_ministry">
         <h1 class="sub_heading">
-            <div class="rect"></div> WEEKLY SERVICES
+            <div class="rect"></div> <span>WEEKLY SERVICES</span>
             <div class="rect"></div>
         </h1>
-        <div class=" believe_body services gallery_text">
+        <div class=" believe_body services phone" style="padding: 5%; display: grid;grid-template-columns: 33% 33% 33%;grid-gap: 1%;">
             <div class=" om sunday_service">
-                <div style="height: 200px;width: 100%;background: url({% static 'assets/communion.png' %});background-position: center;background-size: cover;" alt="communion"></div>
+                <div style="height: 200px;width: 100%;background: url({% static 'assets/communion.png' %});background-position: center;background-size: cover;border-radius: 10px;" alt="communion"></div>
 
                 <p><span class="special_heading">Sunday Service</span>
-                    <br> It is a time of indepth teaching of God's word,manifestation of the spirit and breaking of bread with the saint,
+                    <br> It is a time of indepth teaching of God's word, manifestation of the spirit and breaking of bread with the saint.
                     <br>
                     <span class="service_time">Every Sunday 8:00am</span>
                 </p>
@@ -150,8 +175,8 @@
             </div>
 
             <div class="om rev_hour">
-                <div style="height: 200px;width: 100%;background: url({% static 'assets/rev_hour.png' %});background-position: center;background-size: cover;" alt="communion"></div>
-                <p> <span class="special_heading">Wednesday Day</span>
+                <div style="height: 200px;width: 100%;background: url({% static 'assets/rev_hour.png' %});background-position: center;background-size: cover;border-radius: 10px;" alt="communion"></div>
+                <p> <span class="special_heading">Wednesday Service</span>
                     <br> A time for the unveiling of jesus christ and communicating eternal life through indepth study of scriptures.
 
                     <br>
@@ -160,8 +185,8 @@
             </div>
 
             <div class="om VOP">
-                <div style="height: 200px;width: 100%;background: url({% static 'assets/vop.png' %});background-position: center;background-size: cover;" alt="communion"></div>
-                <p> <span class="special_heading">Mid-night Cry</span>
+                <div style="height: 200px;width: 100%;background: url({% static 'assets/vop.png' %});background-position: center;background-size: cover;border-radius: 10px;" alt="communion"></div>
+                <p> <span class="special_heading">Midnight Cry</span>
                     <br> It is a time of excersing oneself in effectual, fervent prayer that makes tremendous power available, dynamic in his working (james5;16)
                     <br>
                     <span class="service_time">Every Friday 8:00pm</span>
@@ -172,46 +197,112 @@
         </div>
 
     </section>
-    p' =="POST" action="{% url 'addprayer' %}" class="form ">
-    <div class="title ">
-        <div class="line1 "></div>
-        <h1 class="sub_heading ">DO YOU NEED PRAYERS?
-        </h1>
-        <div class="line2 "></div>
-    </div>
-    {% for message in messages %}
-    <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %} {% csrf_token %}
-    <div class="form_top ">
-        <div class="row1 ">
-            <label for="first_name ">First name</label>
-            <input clas type="text " name="prayer_first_name" id="Fname ">
-        </div>
-        <div class="row1 ">
-            <label for="last_name ">Last name</label>
-            <input type="text " name="prayer_last_name" id="Lname ">
+
+    <section class="welcome_text kiddies">
+        <div class="title">
+
+            <h1 class="sub_heading">
+                <div class="rect"></div><span>KIDDIES</span>
+                <div class="rect"></div>
+            </h1>
+
         </div>
 
-        <div class="row1 ">
-            <label for="email ">Email</label>
-            <input type="email " name="prayer_email" id="email ">
+        <div class="believe_body kiddies_content gallery_text">
+            <img class="om" src="{% static 'assets/kiddies.png' %}" alt=" " style="max-width: 400px; ">
+
+            <div class="phone" style="text-align-last: left;">
+
+                <p style="text-align: left; padding: 20px !important;">
+                    <strong>ENCOUNTERING JESUS WITH THE NEXT GENERATION</strong> <br> Bring your child inorder for them to paticipate in eternal life conversation; that they me grow thereby.
+
+                </p>
+
+                <a href="https://lotkids.layersoftruth.org" class="btn " style="text-align-last: center;"> KIDDIES </a>
+            </div>
         </div>
-        <div class="row1 ">
-            <label for="phone ">Phone Number</label>
-            <input type="tel " name="prayer_phone" id="phone ">
+
+    </section>
+
+    <section class="welcome_text pastors_gallery ">
+        <div class="title ">
+            <div class="line1 "></div>
+            <h1 class="sub_heading ">
+                <div class="rect "></div> <span>MEET OUR PASTORS</span>
+                <div class="rect "></div>
+            </h1>
+            <div class="line2 "></div>
         </div>
-    </div>
-    <div class="row1 prayer_request ">
-        <label for="prayer ">Prayer Request</label>
-        <br>
-        <input class="request" type="text" name="prayer_request">
 
-    </div>
-    <div style="align-items: center;text-align-last: center;">
-        <button class=" submit ">SUBMIT</button>
+        <div class="gallery_text ">Assisting our head steward in administrating and ministring, is a team of faithful steward who labour night and day in word,prayer and caring for the church.
+            </p>
+        </div>
+        <div class="gallery gallery_text ">
+            <img style="margin:5px" src="{% static 'assets/residency.png' %}" alt=" ">
+            <img style="margin:5px" src="{% static 'assets/p2.png' %}" alt=" ">
+            <img style="margin:5px" src="{% static 'assets/p3.png' %}" alt=" ">
+            <img style="margin:5px" src="{% static 'assets/p4.png' %}" alt=" ">
+            <img style="margin:5px" src="{% static 'assets/p5.png' %}" alt=" ">
+            <img style="margin:5px" src="{% static 'assets/p6.png' %}" alt=" ">
+        </div>
+        <div class="gallery_btns ">
+            <a href="https://t.me/+25s9rZswn4A0ZWRk" class="msg ">LISTEN TO MESSAGES</a>
+            <a href="https://youtube.com/@layersoftruth_ng" class="vid ">WATCH OUR VIDEOS</a>
+        </div>
+    </section>
 
-    </div>
+    <section class="b join_us gallery_text our_teachings phone" style="padding: 2rem;">
+        <iframe width="100%" height="500" style="max-width: 800px;place-self: center;" src="https://www.youtube.com/embed/TePHiOboK_g" title="AN ONLINE BIBLE STUDY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        <div style="    text-align: left;">
+            <h3 style="margin:10px 0;">Previous teaching</h3>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/5WkQfVCIkAc" title="THE TRUE GRACE OF GOD | PST DOYIN AKERELE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/MefxSHsrYvA" title="THE TRUE GRACE OF GOD [2] | PST DOYIN AKERELE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+    </section>
 
-    </form>
+    <section class="payer_request_form ">
+        <form method="POST" action="{% url 'addprayer' %}" class="form ">
+            <div class="title ">
+                <div class="line1 "></div>
+                <h1 class="sub_heading ">DO YOU NEED PRAYERS?
+                </h1>
+                <div class="line2 "></div>
+            </div>
+            {% for message in messages %}
+            <div class="alert alert-success" style="padding: 10px;max-width: 350px;">{{message}}</div> {% endfor %} {% csrf_token %}
+            <div class="form_top ">
+                <div class="row1 ">
+                    <label for="first_name ">First name</label>
+                    <input clas type="text " name="prayer_first_name" id="Fname ">
+                </div>
+                <div class="row1 ">
+                    <label for="last_name ">Last name</label>
+                    <input type="text " name="prayer_last_name" id="Lname ">
+                </div>
+
+                <div class="row1 ">
+                    <label for="email ">Email</label>
+                    <input type="email " name="prayer_email" id="email ">
+                </div>
+                <div class="row1 ">
+                    <label for="phone ">Phone Number</label>
+                    <input type="tel " name="prayer_phone" id="phone ">
+                </div>
+            </div>
+            <div class="row1 prayer_request ">
+                <label for="prayer ">Prayer Request</label>
+                <br>
+                <input class="request" type="text" name="prayer_request">
+
+            </div>
+            <div style="align-items: center;text-align-last: center;">
+                <button class=" submit ">SUBMIT</button>
+
+            </div>
+
+        </form>
     </section>
 
     <hr>
@@ -221,7 +312,7 @@
 
         <div class="about_us_footer ">
             <h4>ABOUT US</h4>
-            <p>At layers of truth, we are on a journey into God and arecommited to opening the eyes of men, turnnig them from darkness to light and from the power of satan unto God by the the power of the word.
+            <p>At layers of truth, we are on a journey into God and are commited to opening the eyes of men, turning them from darkness to light and from the power of satan unto God by the the power of the word.
             </p>
 
         </div>
@@ -333,72 +424,9 @@
             list.style.display = "block";
         });
         close.addEventListener('click', () => {
-                ">
-
-                <
-                /div>
-
-
-                <
-                div class = "socails "
-                style = "display: flex;width: 150px;justify-content: space-between; " >
-                    <
-                    div class = "socials_icon " >
-                    <
-                    a href = "https://web.facebook.com/layersoftruthng/" > < img src = "{% static 'assets/fb.png' %}"
-                alt = " " > < /a> < /
-                    div > <
-                    div class = "socials_icon " >
-                    <
-                    a href = "https://twitter.com/layers_of_truth" > < img src = "{% static 'assets/twit.png' %} "
-                alt = " " > < /a> < /
-                    div >
-
-
-                    <
-                    div class = "socials_icon " >
-                    <
-                    a href = "https://www.instagram.com/layersoftruth_ng" > < img src = "{% static 'assets/teleg.png' %} "
-                alt = "</a> < /
-                    div > list.style.display = "none";
-            }!-- < img src = " "
-            alt = " " > -- >
-            <
-        ); >
-        <
-        /footer> <
-        script
-        const bar = document.getElementById('menu_bar');
-        const list = document.getElementById('menu_list');
+            list.style.display = "none";
+        });
     </script>
-    const close = document.getElementById('close_menu_bar'); bar.addEventListener('click', () => { list.style.display = "block"; }); close.addEventListener('click', () => { list.style.display = "none"; });
-    </script>
-</body>
-</body>
-<div class="socails " style="display: flex;width: 150px;justify-content: space-between; ">
-    <div class="socials_icon ">
-        <a href="https://web.facebook.com/layersoftruthng/"><img src="{% static 'assets/fb.png' %}" alt=" "></a>
-    </div>
-    <div class="socials_icon ">
-        <a href="https://twitter.com/layers_of_truth"> <img src="{% static 'assets/twit.png' %} " alt=" "></a>
-    </div>
-
-
-    <div class="socials_icon ">
-        <a href="https://www.instagram.com/layersoftruth_ng"><img src="{% static 'assets/teleg.png' %} " alt=" "></a>
-    </div>
-    <!-- <img src=" " alt=" "> -->
-</div>
-</footer>
-<script>
-    const bar = document.getElementById('menu_bar');
-    const list = document.getElementById('menu_list');
-    const close = document.getElementById('close_menu_bar');
-    bar.addEventListener('click', () => {
-        list.style.display = "block";
-    });
-    close.addEventListener('click', () => {
-        list.style.display = "none";
-    });
+</body> });
 </script>
 </body>
