@@ -29,7 +29,7 @@ urlpatterns = [
     path('About-Us',about ,name="about"),
     path('api/', include('rest_framework.urls')),
     path('account/', include('user.urls')),
-    path('service/', include('siloam.urls')),
+    path('Siloam2023/', include('siloam.urls')),
     path('verify/', include('scanbarcode.urls')),
     path('department/', include('department.urls')),
 

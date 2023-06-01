@@ -83,7 +83,10 @@
             <thead class="table-head">
                 <tr>
                     <th>S/N</th>
-                    <th>Names</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
                     <th>Prayer Request</th>
                     <th>Date register</th>
                 </tr>
@@ -93,8 +96,17 @@
                 <tr>
                     <td>{{soul.id}}</td>
                     <td>
-                       {{soul.name}}
+                       {{soul.first_name}}
                     </td>
+                    <td>
+                        {{soul.last_name}}
+                     </td>
+                     <td>
+                        {{soul.email}}
+                     </td>
+                     <td>
+                        {{soul.phone}}
+                     </td>
                     <td>
                         {{soul.request}}
                      </td>
