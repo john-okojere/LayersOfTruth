@@ -22,3 +22,5 @@ siloam/migrations/*
 
 user/migrations/*
 !user/migrations/__init__.py
+__pycache__/
+tmp/
